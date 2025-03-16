@@ -1,0 +1,64 @@
+#full_height{
+    height: 100%;
+    position: absolute;
+    width: 100%;
+}
+#full_height .fh{
+    height: 100%;
+}
+#r1ColL{
+    background-image: url(wallpaper.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
+    box-shadow: 4px 4px 12px grey;
+}
+.reg_bx{
+    position: relative;
+}
+.reg_bx input{
+    color: antiquewhite;
+}
+.reg_bx h3{text-align: center;}
+#regFormDIV{
+    margin: auto;
+    width: 90%;
+    padding-top: 30px;
+}
+#regFormBtnDIV{
+    text-align: center;
+}
+#r1ColR input{
+    color: black!important;
+}
+@media screen and (max-width: 600px) 
+and (min-width: 0px){
+    #r1ColR{
+        position: absolute;
+        background-color: rgba(0, 0, 0, 0.603);
+        height: 100%;
+        color: aliceblue;
+    }
+    #r1ColR input{
+        color:aliceblue!important;
+    }
+}
+#regSignIn{
+    text-align: center;
+}
+.errorTxt{
+    font-size: 10px;
+}
+.reg_success{
+    text-align: center;
+    padding: 30px 0;
+    margin-top: 20px;
+    border-radius: 6px;
+}
+.reg_success p{
+    font-family: 'Noto Sans JP', sans-serif;
+    text-transform: uppercase;
+}
+.reg_success i{
+    font-size: 80px;
+    color: black;
+}

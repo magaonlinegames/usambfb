@@ -1,0 +1,840 @@
+.ACCOUNT_1{
+    background: url(https://images.unsplash.com/photo-1544306094-e2dcf9479da3) no-repeat;
+    background-image: url(wht.jpg);
+    /* Keep the inherited background full size. */
+    background-attachment: fixed; 
+    background-position: center;
+    background-size: cover;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    z-index: 666;
+    position: fixed;
+    width: 100%;
+    height: 100%;
+}
+.transaction-history{
+    background: white;
+    height: 100%;
+    position: fixed;
+    z-index: 777;
+    left: 0;
+    right: 0;
+    overflow: auto;
+}
+.years{
+    width: 90%;
+    margin-top: 55px;
+    font-size: 25px;
+}
+.transaction-history table{
+    width: 95%;
+    margin: auto;
+}
+.close-transaction-history{
+    position: fixed;
+    top: 3%;
+    right: 5%;
+    color: #445159;
+}
+.userFirstName{
+    text-transform: capitalize;
+}
+.acc_container:before {
+    content: "";
+    position: absolute;
+    background: inherit;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    box-shadow: inset 0 0 2000px rgba(255, 255, 255, .5);
+    filter: blur(10px);
+    margin: -20px;
+}
+.acc_container {
+    margin: auto;
+    width: 100%;
+    height: 100%;
+    box-shadow: 0 0 1rem 0 rgba(0, 0, 0, .2); 
+    border-radius: 5px;
+    position: relative;
+    z-index: 1;
+    background: inherit;
+    overflow: hidden;
+}
+.acc_info_bx{
+    position: fixed;
+    bottom: 15px;
+    background-color: red;
+}
+.acc_container:before {
+    background: inherit;
+}
+
+.acc_content{
+    display: inline-block;
+}
+.bnk_logo_bx img{
+    width: 100px;
+    position: relative;
+    left: -5px;
+}
+.mlbx{
+    margin-top: 33px;
+}
+.mlbx li{
+    margin-top: 5%;
+    margin-top: 32px;
+    color: #222222;
+    cursor: pointer;
+}
+.mlbx li:hover{
+    letter-spacing: 1px;
+    transform: 2s;
+}
+.mnlbxActive{
+    color: #ef4035!important;
+}
+
+.mlbx li span{
+    position: relative;
+    top: -7px;
+    font-size: 21px;
+}
+.mlbx li i{
+    font-size: 20px;
+    position: relative;
+    top: -4px;
+}
+
+.accnt_1{
+    padding: 10px;
+    background-color: #ffffff21;
+    z-index: 666;
+    width: 233px;
+    height: 100%;
+    float: left;
+}
+
+.client_notice_bx{
+    text-align: center;
+    display: inline-block;
+}
+.client_notice_bx img{
+    width: 60px;
+    position: relative;
+    left: -13px;
+}
+.bld1{
+    font-weight: bold;
+    display: block;
+    text-align: center;
+    font-size: 15px;
+}
+.bnkPST p{
+    font-size: 13px;
+    color: #000;
+}
+.bld1_btn_bx a{
+    text-align: center;
+    /* border: 1px solid #b14223; */
+    border-radius: 16px;
+    color: #000;
+    padding: 4px;
+    display: block;
+    font-size: 16px;
+    background-color: #ffffff0f;
+}
+
+.accnt_2{
+    padding: 10px;
+    width: 48%;
+    float: left;
+}
+.accnt_2{
+    width: 64%;
+    overflow: auto;
+    height: 100%;
+    scrollbar-width: thin; /* Width of the scrollbar */
+    scrollbar-color: transparent transparent; /* Color of the scrollbar thumb and track */
+}
+/* Hide the scrollbar thumb and track */
+.accnt_2::-webkit-scrollbar {
+    width: 0;
+    height: 0;
+}
+/* Optional: Hide the scrollbar completely, including the empty space */
+.accnt_2::-webkit-scrollbar {
+    display: none;
+  }
+.menu_ctx{
+    position: fixed;
+    right: 0;
+    margin: 10px;
+    display: none;
+    z-index: 999;
+}
+@media screen and (max-width: 662px) 
+and (min-width: 0px) {
+    .menu_ctx{
+        display: block;
+    }
+    .accnt_1{
+        position: fixed;
+        width: 0;
+        display: none;
+    }
+    .accnt_2{
+        width: 100%;
+        position: fixed;
+        z-index: 777;
+        height: 100%;
+    }
+    .accnt_2 .glassBlur{
+        background-color: rgba(255, 255, 255, 0.5);
+        backdrop-filter: blur(10px);
+        -webkit-backdrop-filter: blur(10px);
+        position: absolute;
+        width: 100%;
+        height: 100%;
+        z-index: 888;
+    }
+    .showMenuBar_original{
+        display: block;
+        padding: 10px;
+        background-color: #ffffff21;
+        width: 233px;
+        height: 100%;
+        float: left;
+    }
+    .showMenuBar{
+        display: block;
+        width: 233px;
+    }
+    .secondScreenUI{
+        padding: 10px;
+        width: 48%;
+        float: left;
+    }
+}
+
+#overview_txt{
+    font-size: 26px;
+    display: block;
+}
+#gnrl_txt{
+    font-size: 15px;
+}
+
+#tel_transfer{
+    position: relative;
+    top: -11px;
+}
+#tel_transfer input{
+    width: 151px;
+}
+.balance_card{
+    display: block;
+    padding: 8px;
+    border-radius: 8px;
+    width: 50%;
+    min-width: 200px;
+    /* background-color: white; */
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    background-color: #ffffff6e;
+}
+#account_locked_txt{
+    font-size: 10px;
+}
+#account_address_txt{
+    display: block;
+    font-size: 13px;
+}
+#balance_txt{
+    display: block;
+    font-size: 9px;
+}
+.input_balance{
+    font-size: 25px;
+}
+.savings_business_account{
+    display: inline-block;
+    font-size: 9px;
+}
+#recntTransaction_txt{
+    font-size: 21px;
+    text-transform: capitalize;
+    margin: 9px;
+}
+.rtbx_ul{
+    background-color: #ffffff6e;
+    border-radius: 8px;
+    padding-top: 35px;
+}
+.rtbx_ul li{
+    position: relative;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+.tlist_bx{
+    background-color: pink;
+}
+.tlbx_3{
+    display: block;
+    
+}
+.rtbx_ul li i{
+    background-color: white;
+    border-radius: 6px;
+    font-size: 11px;
+    text-align: center;
+    position: relative;
+    top: 6px;
+    padding: 5px;
+}
+.transaction_details{
+    display: inline-block;
+    width: 90%;
+    top: 0;
+    font-size: 14px;
+    text-transform: uppercase;
+}
+.completed-check{
+    color: rgba(0, 0, 0, 0.784);
+}
+.debit-transaction{
+    color: #bf1a1a;
+}
+.failed-transaction{
+    color: #bf1a1a;
+}
+.credit-transaction{
+    color: green;
+}
+.pending-transaction{
+    color: grey;
+}
+.tdets{
+    padding: 0!important;
+}
+
+.transaction_amount_new{
+    display: block;
+    width: 100%;
+    font-size: 15px;
+    /* color: green; */
+}
+.transaction_date_new{
+    font-size: 11px; 
+    display: block;
+}
+.dateAndAmountBX{
+    position: relative;
+    padding: 0!important;
+}
+.rtbx_ul hr{
+    width: 97%;
+    display: block;
+    margin: auto;
+    border-color: #9aa9af33;
+}
+
+.transfer_card{
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    width: 100%;
+    left: 0;
+    right: 0;
+    height: 100%;
+    margin: auto;
+    position: fixed;
+    z-index: 777;
+    background-color: #262626b0;
+    margin: auto;
+    overflow: auto;
+}
+.SEND_CARD_BX .loaderBX{
+    text-align: center;
+
+}
+.xxclr1{
+    background-color: #00579d!important;
+}
+.wire_money_continue_btn:hover{
+    letter-spacing: 4px;
+}
+.wire_money_send_btn:hover{
+    letter-spacing: 4px;
+}
+
+.SEND_CARD_BX{
+    background-color: white;
+    width: 90%;
+    max-width: 777px;
+    padding: 16px;
+    margin: auto;
+    position: absolute;
+    border-radius: 6px;
+    right: 0;
+    left: 0;
+    top: 5%;
+}
+.confirm_this_transfer_bx{
+    box-shadow: 4px 4px 12px grey;
+    padding: 11px;
+    border-radius: 3px;
+    margin-top: 44px;
+}
+.tvp_bx{
+    text-align: center;
+}
+.loader_ide_1{
+    width: 30px;
+    height: 30px;
+}
+.transfer_successful_bx{
+    text-align: center;
+}
+.transfer_successful_bx{
+    font-size: 18px;
+}
+#tsbx_btn{
+    font-size: 44px;
+}
+
+
+.confirm_this_transfer_bx textarea{
+    border: none!important;
+    text-transform: uppercase;
+    color: #000;
+}
+#confirm_transfer_bx .btn{
+    display: block;
+    margin-bottom: 8px;
+}
+#confirn_transfer_btn:hover{
+    background-color: #00579d!important;
+}
+.confirm_transfer_info p{
+    font-size: 17px;
+}
+.bank_information_bx{
+    /* border: 1px solid grey; */
+    padding: 8px;
+    overflow: auto;
+    position: relative;
+    top: 17px;
+}
+.transfer_money_btn{
+    text-align: right;
+}
+.transfer_money_btn .btn{
+    width: 150px;
+}
+.transfer_money_btn .btn:hover{
+    background-color: #467c48!important;
+}
+.SEND_CARD_BX textarea{
+    border-left: 1px solid rgba(128, 128, 128, 0.427);
+    border-right: 1px solid rgba(128, 128, 128, 0.427);
+    border-top: 1px solid rgba(128, 128, 128, 0.427);
+    width: 70%;
+    display: block;
+    font-size: 13px;
+    padding: 3px;
+    padding-top: 9px;
+    padding-left: 11px;
+}
+#send_money_close_btn{
+    cursor: pointer;
+}
+.SCBX2{
+    color: #000;
+}
+.SCBX4{
+    text-align: right;
+}
+.BX_TITLE{
+    font-weight: 444;
+}
+.symb1{
+    transform: rotate(-45deg);
+}
+#from_which_acc{
+    text-transform: uppercase;
+}
+.SCBX2 input{
+    color: rgba(0, 0, 0, 0.701)!important;
+    font-size: 12px!important;
+    border: 1px solid rgba(128, 128, 128, 0.547)!important;
+    border-radius: 3px!important;
+    padding-left: 12px!important;
+    font-weight: 555;
+}
+.SCBX2 label{
+    color: #000!important;
+}
+.e_txt{
+    color: red;
+    display: block;
+    font-size: 9px;
+    position: relative;
+    top: -11px;
+}
+#recent_transfer_made_btn{
+    position: absolute;
+    top: 19px;
+    height: 44px;
+    display: block;
+    padding: 3px;
+    border: 1px solid grey;
+}
+.rctmdebtn{
+    position: relative;
+}
+.SCBX2 input .notouch{
+
+}
+.wire_card{
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    width: 98%;
+    overflow: auto;
+    margin: auto;
+    border-radius: 4px;
+    padding: 6px;
+    margin-top: 5%;
+    background-color: white;
+    max-width: 1088px;
+    position: relative;
+    margin-bottom: 20px;
+}
+.wire_card form{
+    width: 90%!important;
+    margin-left: 2%!important;
+    overflow: auto;
+}
+.wire_card label{
+    font-size: 17px;
+}
+@media screen and (max-width: 350px) {
+    .wire_card{
+        width: 99%;
+    }
+}
+.backBX{
+    cursor: pointer;
+    position: fixed;
+    padding: 8px;
+    color: black;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    z-index: 666;
+    background-color: #545a59;
+}
+.backBX a{
+    color: #00000070;
+}
+
+.tsbx a{
+    display: block;
+    width: 60%;
+    margin: auto;
+    font-size: 17px;
+}
+
+.transfer_send_bx {
+    position: absolute;
+    bottom: 16px;
+    width: 97%;
+    background-color: white;
+}
+.transfer_error{
+    color: red;
+    font-size: 6px;
+    text-transform: uppercase;
+    display: block;
+}
+
+.accnt_3{
+}
+
+.quick_transfer_card{
+    padding: 23px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+    border-radius: 8px;
+    width: 290px;
+    background-color: #ffffff6e;
+    margin-top: 20px;
+}
+.qtc_via{
+}
+.qtc_title{
+    margin-bottom: 20px;
+    display: block;
+    font-size: 25px;
+    position: relative;
+    left: 21px;
+}
+.qtc_via a{
+    color: black;
+    display: inline-block;
+    width: 49%;
+    border-radius: 16px;
+    font-weight: 600;
+}
+.qtca_active{
+    border: 1px solid grey;
+    color: #3849a6!important;
+}
+   
+
+
+.via_mobile,.via_account{
+    display: inline-block;
+    font-size: 10px;
+    padding: 10px;
+    text-align: center;
+    width: 48%;
+}
+
+.qt_lines{
+    border-right: 1px solid grey;
+}
+#transfer_currency{
+    text-align: center;
+    display: block;
+    font-weight: 500;
+    position: relative;
+    top: 12px;
+}
+.vxz1 span{
+    display: block!important;
+}
+#quick_transfer_amount{
+    display: block;
+    font-weight: 600;
+
+}
+#quick_transfer_amount_input{
+    text-align: end;
+}
+#quick_transfer_symbol{
+    font-weight: 600;
+    position: relative;
+    top: 13px;
+}
+.qck_transfer_btn_bx{
+    text-align: center;
+}
+.qck_transfer_btn_bx a{
+    border-radius: 15px;
+    display: block;
+    margin: auto;
+    width: 95%;
+    margin-top: 25px;
+    margin-bottom: 25px;
+    background-color: #445159;
+}
+
+/* REPORT PAGE */
+.report_page{
+    position: fixed;
+    top: 0;
+    width: 100%;
+    bottom: 0;
+    background-color: white;
+    z-index: 777;
+    background-image: url(bg1.png);
+    background-position: center;
+    background-size: cover;
+    overflow: auto;
+}
+.mdl_bx{
+    /* background-color: pink; */
+    width: 80%;
+    max-width: 970px;
+    margin: auto;
+    margin-top: 5%;
+    overflow: auto;
+}
+
+.report_card_1{
+    padding: 13px;
+    font-size: 18px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+}
+.rc1_title{
+    font-weight: 500;
+}
+.rc1_title hr{
+    border-color: rgb(33 150 243);
+}
+
+.report_card_bhx{
+    font-size: 20px;
+    padding: 34px;
+    box-shadow: rgb(0 0 0 / 12%) 0px 1px 3px, rgb(0 0 0 / 24%) 0px 1px 2px;
+}
+.rbx1{
+    position: relative;
+    top: -5px;
+}
+.rc1_contact_bx{
+    font-size: 10px;
+    letter-spacing: 2px;
+}
+.rc1_contact_bx li{
+    display: block;
+}
+.rc1_contact_bx i{
+    font-size: 20px;
+}
+
+.report_send_btn{
+    text-align: center;
+}
+.report_send_btn a{
+    display: block;
+}
+
+.play_final_bhxxx{
+    /* border: 1px solid red; */
+    padding: 5px;
+}
+#report_message_txt{
+    height: 10rem;
+}
+#report_page_form{
+    height: 95%;
+}
+#report_message{
+    height: 150px;
+    text-align: left;
+    padding: 10px;
+    border: none;
+    border-right: .3px solid grey;
+    border-left: .3px solid grey;
+    border-top: .3px solid grey;
+}
+.ldr_report{
+    float: right;
+    margin-right: 8px;
+}
+@media screen  and (max-width: 600px)
+and (min-width: 0){
+    .mdl_bx{
+        height: max-content!important;
+    }
+}
+/* INFO ALERTER  */
+.info_alerter_bx{
+    position: absolute;
+    z-index: 666;
+    background-color: #fffffff0;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+}
+/* report sucess alerter  */
+.report_success_bxx{
+    text-align: center;
+    width: 80%;
+    margin: auto;
+    margin-top: 30px;
+}
+.rsbxx i{
+    font-size: 50px;
+}
+.commentBX p{
+    font-style: oblique;
+}
+/* ACCOUNT 4 --- */
+.accnt_4{
+    width: 78%;
+    background-color: #ffffff69;
+    height: 100%;
+    float: right;
+    padding: 10px;
+    position: absolute;
+}
+.rprts_loader, .info_loader{
+    text-align: center;
+    margin-top: 20px;
+}
+.qtcAddy{
+    font-weight: 500;
+    display: block;
+}
+.getInTouchBX{
+    text-align: center;
+}
+.form_input{
+    width: 95%;
+    margin: auto;
+    margin-top: 49px;
+    float: right;
+    margin-right: 23px;
+}
+.form_input label{
+    color: #000;
+}
+.send_report_bxx{
+    text-align: right;
+}
+.send_report_bxx a{
+    width: 200px;
+    margin: auto;
+    background-color: #4d4a44;
+}
+.error_txt{
+    font-size: 12px;
+    display: block;
+    text-align: center;
+}
+.erbx1 span{
+    position: relative;
+    top: -19px;
+}
+
+
+/* VERIFICATION */
+.verify_code{
+    position: fixed;
+    background-color: white;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    z-index: 777;
+}
+.verifyCard{
+    border-radius: 6px;
+    background-color: #cccccc;
+    width: 290px;
+    margin: auto;
+    position: absolute;
+    top: 10%;
+    left: 0;
+    right: 0;
+    padding: 20px;
+}
+.symb_1 i{
+    font-size: 34px;
+    color: #00579d;
+}
+.symb_1,.symb_2,.symb_3,
+.symb_4,.symb_5,.symb_6{
+    text-align: center;
+    margin-top: 15px;
+}
+.veri_txt{
+    font-weight: 600;
+    display: block;
+    text-align: center;
+    font-size: 20px;
+}
+.verification_loader_bx{
+    text-align: center;
+    margin-top: 25px;
+}

@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!--Import materialize.css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+    <link rel="stylesheet" href="register.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@100&display=swap" rel="stylesheet">
+    <!--Let browser know website is optimized for mobile-->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+  </head>
+
+  <body>
+
+    <div class="row" id="full_height">
+      <div class="col m6 s12 black fh" id="r1ColL">
+            
+            
+      </div>
+      <div class="col m6 s12" id="r1ColR">
+        <div class="reg_bx">
+                <h3>CREATE AN ACCOUNT</h3>
+                <hr>
+                <div class="row" id="regFormDIV">
+                    <form class="col s12">
+                      <div class="row">
+                        <div class="input-field col s6" id="firstNameField">
+                          <input  id="first_name" type="text" class="validate">
+                          <label for="first_name">First Name</label>
+                          <span class="errorTxt red-text"></span>
+                        </div>
+                        <div class="input-field col s6" id="lastNameField">
+                          <input id="last_name" type="text" class="validate">
+                          <span class="errorTxt red-text"></span>
+                          <label for="last_name">Last Name</label>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12" id="passwordField">
+                          <input id="password" type="password" class="validate">
+                          <label for="password">Password</label>
+                          <span class="errorTxt red-text"></span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12" id="emailField">
+                          <input id="email" type="email" class="validate">
+                          <label for="email">Email</label>
+                          <span class="errorTxt red-text"></span>
+                        </div>
+                      </div>
+                      <div class="row">
+                        <div class="input-field col s12" id="addressField">
+                          <input id="address" type="text" class="validate">
+                          <label for="address">Address</label>
+                          <span class="errorTxt red-text"></span>
+                        </div>
+                      </div>
+                    </form>
+                </div>
+                <div id="regFormBtnDIV">
+                  
+                  <div class="preloader-wrapper big active hide">
+                    <div class="spinner-layer spinner-blue-only">
+                      <div class="circle-clipper left">
+                        <div class="circle"></div>
+                      </div><div class="gap-patch">
+                        <div class="circle"></div>
+                      </div><div class="circle-clipper right">
+                        <div class="circle"></div>
+                      </div>
+                    </div>
+                  </div>
+
+                 
+
+                    <a  class="btn" onclick="validateForm();">CREATE ACCOUNT</a>
+                </div>
+                <br>
+                <div id="regSignIn">
+                    <span>
+                        <a href="../accounts/">Sign into your account</a>
+                    </span>
+                </div>
+        </div>
+
+        <div class="reg_success white hide">
+            <div class="preloader-wrapper big active">
+                <div class="spinner-layer spinner-blue-only">
+                  <div class="circle-clipper left">
+                    <div class="circle"></div>
+                  </div><div class="gap-patch">
+                    <div class="circle"></div>
+                  </div><div class="circle-clipper right">
+                    <div class="circle"></div>
+                  </div>
+                </div>
+              </div>
+            <p class="flow-text black-text">WELCOME, <span id="registeredUser">Brad</span> </p>
+        </div>
+      </div>
+    </div>  
+    <!--JavaScript at end of body for optimized loading-->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    <script src="register.js"></script>
+  </body>
+</html>

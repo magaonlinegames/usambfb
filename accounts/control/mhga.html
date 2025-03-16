@@ -1,0 +1,305 @@
+<html>
+    <head>
+        <title></title>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+   
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+            
+        <link rel="preconnect" href="https://fonts.gstatic.com">
+        <link href="https://fonts.googleapis.com/css2?family=Goldman&display=swap" rel="stylesheet">
+        <link rel="stylesheet" href="q.css">
+        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-app.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-auth.js"></script>
+        <script src="https://www.gstatic.com/firebasejs/7.24.0/firebase-firestore.js"></script>
+    </head>
+
+    <body>
+        <div class="only-mobile">
+            <div class="percentage">
+                <div class="progress">
+                    <div class="determinate green" style="width: 31%"></div>
+                </div>
+                <p class="black-text fnt">31%</p>
+            </div>
+
+            <br><br>
+            <div class="row details fnt gamemodes">
+                <div class="card  bank-btn darken-1" onclick="openBankMode();">
+                    <div class="card-content white-text">
+                      <p> BANK <i class="indicator material-icons">account_balance</i></p>
+                      
+                    </div>
+                </div>
+
+                <div class="card blue-grey ship-btn darken-1" onclick="openMessenger()">
+                    <div class="card-content white-text">
+                      <p> SHIPPING <i class="indicator material-icons">directions_boat</i></p>
+                    </div>
+                </div>
+
+                <div class="card blue-grey ngo-btn darken-1" onclick="ngo();">
+                    <div class="card-content white-text">
+                      <p> NGO <i class="indicator material-icons">gesture</i></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="bank-mode">
+            <i class="material-icons cancel" onclick="closeBankMode();">cancel</i>
+
+            <br><br>
+            <div class="container fnt">
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                      <span class="card-title iTitle grey-text">Account Holder</span>
+                      <p class="acc_name"> loading... </p>
+                      <div class="edit-man e1">
+                        <input type="text" class="green-text">
+                      <a class="btn" onclick="changeAccountName('account14',$('.e1 input').val())">Change</a>
+                      </div>
+                    </div>
+                    <i class="material-icons edits" onclick="openEdits(1);">mode_edit</i>
+                </div>
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                      <span class="card-title iTitle grey-text">Account Address</span>
+                      <p class="acc_address"> loading... </p>
+                      <div class="edit-man e2">
+                        <input type="text" class="green-text">
+                      <a class="btn" onclick="changeAccountAddress('account14',$('.e2 input').val())">Change</a>
+                      </div>
+                    </div>
+                    <i class="material-icons edits" onclick="openEdits(2);">mode_edit</i>
+                </div>
+                <div class="card blue-grey darken-1">
+                    <div class="card-content white-text">
+                      <span class="card-title iTitle grey-text">Account balance</span>
+                      <p class="acc_balance"> loading... </p>
+                      <div class="edit-man e3">
+                        <input type="text" class="green-text">
+                      <a class="btn" onclick="changeAccountBalance('account14',$('.e3 input').val())">Change</a>
+                      </div>
+                    </div>
+                    <i class="material-icons edits"onclick="openEdits(3);">mode_edit</i>
+                </div>
+
+                <div>
+                  <h6 class="account_state_txt">Account State</h6>
+                  <!-- Switch -->
+                  <div class="switch">
+                    <label>
+                      Locked
+                      <input type="checkbox" class="acc_lock_switch" id="acc_5_lock_input" onclick="lockOpenAccount();">
+                      <span class="lever"></span>
+                      Active
+                    </label>
+                  </div>
+                </div>
+            
+            </div>
+
+            <br><br>
+            <hr>
+            <div class="row monitor-man" onclick="getMonitorData('account14');">
+                <div class="container"><small><h6>Real-time surveillance</h6></small></div>
+                <div class="scrollmenu fnt">
+                    <a  class="flow-text"><small>Account</small> <br> <span class="whichacc_txt">...</span> </a>
+                    <a  class="flow-text"><small>Actions</small> <br> <span class="logins_num">07</span> </a>
+                    <a  class="flow-text"><small>Ip</small> <br> <span class="ip_txt">...</span> </a>
+                    <a  class="flow-text"><small>Platform</small> <br> <span class="system_txt">...</span> </a>
+                    <a  class="flow-text"><small>Login time</small> <br> <span class="date_txt">...</span> </a>
+                    <a  class="flow-text"><small></small> <br> <span class=""></span> </a>
+                    <a  class="flow-text"><small></small> <br> <span class=""></span> </a>
+                    
+                </div>
+            </div>
+
+            <!--TRANSFER SECTION-->
+            <hr>
+            <div class="row transfer-man" onclick="getTrasactions('account14')">
+              <div class="container">
+                <h6>Transfers</h6>
+                <ul class="collapsible .acc-transfer-col act">
+                  <li>
+                    <!-- 
+                      <div class="collapsible-header ch"><i class="material-icons grey-text">arrow_back</i>Transfer to charset Ltd <span class="amount">400.00</span> <span class="time grey-text">28-Oct-20</span> </div>
+                    <div class="collapsible-body grey-text"><span>You have successfully transferred 400.00 via balance.</span></div>
+                    -->
+                  </li>
+                </ul>
+              </div>
+            </div>
+
+            <div class="fixed-action-btn">
+              <a class="btn-floating btn-large red">
+                <i class="large material-icons">build</i>
+              </a>
+              <ul class="fnt">
+                <li class="white-text"><a class="btn-floating blue"><i class="material-icons" onclick="openRefresh();">refresh</i></a>Refresh</li>
+                <li><a class="btn-floating green darken-1"><i class="material-icons">local_atm</i></a>Add Transfer</li>
+                <li><a class="btn-floating red"><i class="material-icons">publish</i></a>Logout</li>
+                <li><a class="btn-floating yellow black-text"><i class="material-icons">lock</i></a>Lock Account</li>
+              </ul>
+            </div>
+
+            <!-- CHANGE PASSWORD FEILD -->
+            <div class="password-change">
+              <hr>
+              <div class="container ">
+              </div>
+              <div class="row container mail-officer">
+                <input type="text" placeholder="New email" class="new_mail_input">
+                <div class="col s12"> <a class="btn edBTN"> Change Email</a> </div>
+              </div>
+              <div class="container">
+              </div>
+              <br><br>
+              <div class="row container password-officer">
+                <input type="text" placeholder="New password" class="new_passcode_input">
+                <div class="col s12"> <a class="btn edBTN"> Change Password</a> </div>
+              </div>
+              <br>
+            </div>
+        </div>
+
+        <div class="alerter">
+            <br>
+
+            <div class="container refresh-alert hide">
+                <div class="card white-grey darken-1">
+                    <div class="card-content black-text">
+                      <span class="card-title">Are You Sure</span>
+                      <p>Do you want to perform a refresh action on this account?</p>
+                    </div>
+
+                    <div class="card-action load-ui">
+                      <a class="btn green" onclick="loadStatus('account14',1);">Refresh</a>
+                      <a class="btn red" onclick="closeRefresh();">Cancel</a>
+                    </div>
+                </div>
+            </div>
+
+            <br><br>
+            <div class="container transfer-alert hide">
+              <div class="card white-grey darken-1">
+                  <div class="card-content black-text">
+                    <span class="card-title">TRANSFER REQUEST</span>
+                    <p>Do you want to allow this transfer?</p>
+                    <div class="row db-permit">
+                      <div class="col s4"> <small>Bank</small> <span class="transfer_bank">Not Available </span> </div>
+                      <div class="col s4"><small>Name</small> <span class="transfer_name">Not Available </span></div>
+                      <div class="col s4"><small>Account</small> <span class="transfer_acc">Not Available</span> </div>
+                      <div class="col s4"><small>Amount</small> <span class="transfer_amount">Not Available </span></div>
+                      <div class="col s4"><small>Date</small> <span class="transfer_date">Not Available</span></div>
+                    </div>
+                    <hr>
+                  </div>
+                  <div class="card-action load-ui">
+                    <a class="btn green" onclick="allowTransfer('account14');">Allow</a>
+                    <a class="btn red" onclick="closeRefresh();">Reject</a>
+                  </div>
+              </div>
+            </div>
+
+            <div class="container add-transfer-alert hide">
+              <div class="card white-grey darken-1 transfer-type trans1">
+                  <div class="card-content black-text">
+                    <p>Is this an Outgoing or Incoming Transfer?</p>
+                  </div>
+                  <div class="card-action load-ui">
+                    <a class="btn green" onclick="allowTransfer('account14');">INCOMING</a>
+                    <a class="btn red" onclick="closeRefresh();">REJECT</a>
+                  </div>
+              </div>
+
+              <div class="card white-grey darken-1 transfer-who trans2">
+                <div class="card-content black-text transfer-sender">
+                  <p>Name of Sender/Receiver?</p>
+                  <input type="text" placeholder="Enter name here">
+                </div>
+                <div class="card-action load-ui">
+                  <a class="btn green" onclick="allowTransfer('account14');">Continue</a>
+                  <a class="btn grey" onclick="closeRefresh();">Cancel</a>
+                </div>
+              </div>
+
+            <div class="card white-grey darken-1 transfer-amount trans3">
+              <div class="card-content black-text transfer-sender">
+                <p>Amount of transfer?</p>
+                <input type="text" placeholder="0.00">
+              </div>
+              <div class="card-action load-ui">
+                <a class="btn green" onclick="allowTransfer('account14');">Continue</a>
+                <a class="btn grey" onclick="closeRefresh();">Cancel</a>
+              </div>
+            </div>
+            </div>
+
+            <div class="container change-password-alert hide">
+              <div class="card white-grey darken-1 transfer-type trans1">
+                  <div class="card-content black-text">
+                    <p>Change Password</p>
+                    
+                  </div>
+                  <div class="card-action load-ui">
+                    <a class="btn green" onclick="allowTransfer('account14');">INCOMING</a>
+                    <a class="btn red" onclick="closeRefresh();">REJECT</a>
+                  </div>
+              </div>
+
+              <div class="card white-grey darken-1 transfer-who trans2">
+                <div class="card-content black-text transfer-sender">
+                  <p>Name of Sender/Receiver?</p>
+                  <input type="text" placeholder="Enter name here">
+                </div>
+                <div class="card-action load-ui">
+                  <a class="btn green" onclick="allowTransfer('account14');">Continue</a>
+                  <a class="btn grey" onclick="closeRefresh();">Cancel</a>
+                </div>
+              </div>
+
+            <div class="card white-grey darken-1 transfer-amount trans3">
+              <div class="card-content black-text transfer-sender">
+                <p>Amount of transfer?</p>
+                <input type="text" placeholder="0.00">
+              </div>
+              <div class="card-action load-ui">
+                <a class="btn green" onclick="allowTransfer('account14');">Continue</a>
+                <a class="btn grey" onclick="closeRefresh();">Cancel</a>
+              </div>
+            </div>
+            </div>
+        </div>
+
+        <div class="sensitive hide">
+          <div class="guider g1">
+            <div class="preloader-wrapper big active">
+              <div class="spinner-layer spinner-blue-only">
+                <div class="circle-clipper left">
+                  <div class="circle"></div>
+                </div><div class="gap-patch">
+                  <div class="circle"></div>
+                </div><div class="circle-clipper right">
+                  <div class="circle"></div>
+                </div>
+              </div>
+            </div>
+
+            <div class="guiderInfo">
+              <span class="flow-text">Please Wait...</span>
+            </div>
+          </div>
+        </div>
+
+        <script>var thisAccount = 'account14';</script>
+        <script src="db.js"></script>
+        <script src="q.js"></script>
+        
+    </body>
+</html>
