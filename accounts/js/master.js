@@ -12,7 +12,7 @@ $("form").submit(function(e){
 });
 // 2024
 function closeTransactionHistory(){
-  $('.transaction-history').addClass('hide');
+  $('.transaction-history, .T-history').addClass('hide');
 }
 function openTransactionHistory(){
   console.log('TRANSACTION HISTORY USER ACCOUNT == '+user_account);
@@ -23,6 +23,10 @@ function openTransactionHistory(){
     console.log('Show transaction history');
     
     $('.transaction-history').removeClass('hide');
+  }else if (user_account == 'account10') {
+    console.log('Show transaction history');
+    
+    $('.YEAR2020').removeClass('hide');
   }
 }
 
