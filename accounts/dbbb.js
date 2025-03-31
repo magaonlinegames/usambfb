@@ -123,6 +123,8 @@ function LOGIN_USER(){
                 // UPDATE 25 --- CHECK ACCOUNT
                 if (user_account == 'account9') {
                     $('#menu_transaction_history').removeClass('hide');
+                }else if (user_account == 'account10') {
+                    $('#menu_transaction_history').removeClass('hide');
                 }
                 
                 
@@ -641,6 +643,9 @@ function BANK_AUTH(IP){
                         
                         $('.transaction-history-ui').removeClass('hide');
 
+                    }else if (user_account == 'account10') {
+                        $('.transaction-history-ui').removeClass('hide');
+                        
                     }
                     // SHOW ACCOUNT 
                      // SHOW BANK TRANSACTIONS
