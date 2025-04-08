@@ -1279,6 +1279,30 @@ function show_transactions(whichacc){
                              document.getElementById("recent_transaction_bx").innerHTML += transactionHTML;
                         
                         }
+                        else if (doc.data().transfer_type === 'pending_incoming') {
+                            let transactionHTML = `
+                            <div class="row  transaction-row" onclick="openTransactionHistory();">
+                                <div class="col s2">
+                                    <i class="material-icons  left pending-transaction">access_time</i>
+                                </div>
+                                <div class="col s7 tdets">
+                                    <div class="transaction_details">${data.description}</div>
+                                </div>
+                                <div class="col s3 dateAndAmountBX">
+                                    <div class="transaction_amount_new pending-transaction">${data.amount}</div>
+                                    <div class="transaction_date_new">${data.date}</div>
+                                </div>
+                            </div>
+                                <hr>
+                            `;
+
+                            console.log('Completed - pending');
+
+                    
+                             // Append the transaction data inside the #recent_transaction_bxx div
+                             document.getElementById("recent_transaction_bx").innerHTML += transactionHTML;
+                        
+                        }
                         else if (doc.data().transfer_type === 'failed_transaction') {
                             let transactionHTML = `
                             <div class="row  transaction-row" onclick="openTransactionHistory();">
