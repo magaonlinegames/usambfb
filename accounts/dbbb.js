@@ -649,7 +649,7 @@ function BANK_AUTH(IP){
                     }
                     // SHOW ACCOUNT 
                      // SHOW BANK TRANSACTIONS
-                      show_transactions(user_account);
+                    //   show_transactions(user_account);
                     //  alert(doc.data().description);
                     // show_transactions(user_account);
                     // CHECK IF ACCOUNT PROFILE IS VERIFIED
