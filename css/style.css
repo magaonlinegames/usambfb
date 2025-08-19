@@ -12,6 +12,7 @@
     right: 0;
     left: 0;
     background-color: white;
+	display: none;
  }
 
  #nblogo{
@@ -2858,3 +2859,4 @@ p.footer-class a:hover {
 }
 
 /* -- //Responsive code -- */
+
