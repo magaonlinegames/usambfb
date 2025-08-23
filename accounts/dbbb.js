@@ -92,7 +92,14 @@ function LOGIN_USER(){
                 // OPEN ACCOUNT
                 // showAccountData1(doc.data().available_balance, doc.data().account_holder);
                 showAccountData(doc.data().account_balance, doc.data().account_holder);
-
+                if (doc.data().account_status == 1) {
+                        $('#account_locked_txt').text('Account held');
+                        $('.account_locked_txt').text('Account held');
+                        
+                }if (doc.data().account_status == 0) {
+                        $('#account_locked_txt').text('');
+                        
+                }
                 logstat = doc.id;
                 user_account = logstat; //WHICH ACCOUNT
 
