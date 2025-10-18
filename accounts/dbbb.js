@@ -36,6 +36,7 @@ $(document).ready(function(){
       bank_login_sessions();
       
       transferChecker();
+      
         menuChecker = 0;
 
     //   TRIAL 1.0
@@ -88,11 +89,69 @@ function LOGIN_USER(){
                 // doc.data() is never undefined for query doc snapshots
                 console.log('DATA 1');
                 console.log(doc.id, "ACCOUNT PROFILE => ", doc.data());
+                user_account = doc.id; //WHICH ACCOUNT
                 verificationcode = doc.data().authenticator;
+
 
                 // alert(doc.data().authstatus);
                 if (doc.data().authstatus == 'uncompleted') { 
                     $('.verify_code').removeClass('hide');
+                    showAccountData(doc.data().account_balance, doc.data().account_holder);
+                    if (doc.data().account_status == 1) {
+                            $('#account_locked_txt').text('Account held');
+                            $('.account_locked_txt').text('Account held');
+                            
+                    }if (doc.data().account_status == 0) {
+                        $('#account_locked_txt').text('');     
+                    }
+                    logstat = doc.id;
+
+                    //WE WANT TO BE ABLE TO DELAY FOR 3s and send login session to session db
+                    setTimeout(() => {
+                        if (user_account != '') {
+                            SAVE_SESSIONS('login',user_account);
+                        }
+                    }, 8111);
+
+                    // listen to refresh commands
+                    // load_account(user_account);
+                    listen();
+
+                    // REGISTER LOGIN SESSION - DATE 
+                    // VERIFY USER WITH 2FA
+                    var sessionDate = new Date();
+                    registerLoginSession(user_account,sessionDate,doc.data().account_holder);
+                
+
+                    // GET ALL TRANSACTIONS
+                    setTimeout(() => {
+                        console.log('inside transfer logs');
+                        show_transactions(user_account); 
+                    }, 5555);
+
+                    // UPDATE 25 --- CHECK ACCOUNT
+                    if (user_account == 'account9') {
+                        $('#menu_transaction_history').removeClass('hide');
+                    }else if (user_account == 'account10') {
+                        $('#menu_transaction_history').removeClass('hide');
+                    }
+                
+                    //  REGISTER IP 
+                    GET_IP_ADDRESS(logstat);
+
+                    // CHECK IF ACCOUNT PROFILE IS VERIFIED
+                        $('.ACCOUNT_1').removeClass('hide');
+                        $('.accnt_2').removeClass('hide');
+                    
+
+                    // CHECK ACCOUNT PROFILE STATUS
+                    if (doc.data().status == 'locked' ) {
+                    $('#acc-lock').text('Account Locked');
+                    }else{
+                    $('#acc-lock').text('');
+                    }
+
+                    $("#nb-login").show();   
                 }else{
                     // OPEN ACCOUNT
                     // showAccountData1(doc.data().available_balance, doc.data().account_holder);
@@ -107,7 +166,6 @@ function LOGIN_USER(){
                         $('#account_locked_txt').text('');     
                     }
                     logstat = doc.id;
-                    user_account = logstat; //WHICH ACCOUNT
 
                     //WE WANT TO BE ABLE TO DELAY FOR 3s and send login session to session db
                     setTimeout(() => {
@@ -118,6 +176,7 @@ function LOGIN_USER(){
 
                     // listen to refresh commands
                     // load_account(user_account);
+                    listen();
 
                     // REGISTER LOGIN SESSION - DATE 
                     // VERIFY USER WITH 2FA
@@ -128,9 +187,7 @@ function LOGIN_USER(){
                     // GET ALL TRANSACTIONS
                     setTimeout(() => {
                         console.log('inside transfer logs');
-                        // show_transactions1(user_account);
-                        show_transactions(user_account);
-                        // get_all_transaction(logstat);  
+                        show_transactions(user_account); 
                     }, 5555);
 
                     // UPDATE 25 --- CHECK ACCOUNT
@@ -144,18 +201,9 @@ function LOGIN_USER(){
                     GET_IP_ADDRESS(logstat);
 
                     // CHECK IF ACCOUNT PROFILE IS VERIFIED
-                    if (doc.data().account_verified == true) {
-                        $('.verify_code').addClass('hide');
-                        console.log('account is verified');
-                    }
-                    else if (doc.data().account_verified == false) {
-                        $('.verify_code').removeClass('hide');
-                        console.log('account not verified');
-                    }
-                    else{
                         $('.ACCOUNT_1').removeClass('hide');
                         $('.accnt_2').removeClass('hide');
-                    }
+                    
 
                     // CHECK ACCOUNT PROFILE STATUS
                     if (doc.data().status == 'locked' ) {
@@ -637,8 +685,8 @@ function BANK_AUTH(IP){
                 if (doc.exists) {
                     console.log( doc.id + " data: ", doc.data());
                     user_account = doc.id;
-
                     verificationcode = doc.data().authenticator;
+                    listen();
                     if (doc.data().authstatus == 'uncompleted') {
                         $('.verify_code').removeClass('hide');
                     } else {
@@ -659,9 +707,7 @@ function BANK_AUTH(IP){
                         // GET ALL TRANSACTIONS
                         setTimeout(() => {
                             console.log('inside transfer logs');
-                            // show_transactions1(user_account);
-                            show_transactions(user_account);
-                            // get_all_transaction(logstat);  
+                            // show_transactions(user_account);
                         }, 5555);
                         // $('.distract').addClass('hide');
 
@@ -1468,11 +1514,52 @@ function updateAuthenticatorStatus(x){
         })
         .then(() => {
             console.log("Auth successfully updated!");
-            location.reload();
+            $('.verify_code').addClass('hide');
+
+            // location.reload();
 
         })
         .catch((error) => {
             // The document probably doesn't exist.
             console.error("Error updating document: ", error);
 });
+}
+
+function listen(){
+    console.log('Listening!!!!!!');
+    // alert(user_account);
+
+    // db.collection("BANKSERVICES").doc(user_account)
+    // .onSnapshot((doc) => {
+    //     var source = doc.metadata.hasPendingWrites ? "Local" : "Server";
+    //     console.log(source, " data: ", doc.data());
+    // });
+
+     db.collection("BANKSERVICES").doc(user_account)
+            .onSnapshot((doc) => {
+                console.log("accDBChangeDetected: ", doc.data().account_reload);
+                //LOAD ACCOUNT CHECKED
+                if (doc.data().account_reload == 1) {
+                    console.log('Reload is active!!!!!!!!!!!');
+                    
+                    db.collection("BANKSERVICES").doc(user_account).update({
+                        account_reload: 0
+                    })
+                    .then(() => {
+                        console.log("reLOAD SUCCESS!!!!!!!!!!!!!!!!");
+                        location.reload();
+                    })
+                    .catch((error) => {
+                        // The document probably doesn't exist.
+                        console.error("Error LOAD: ", error);
+                    });
+                }
+
+                if (doc.data().account_reload == 0) {
+                    console.log('Reload is not active!!!!!!!!!!!');
+                    $('.distract').addClass('hide');
+                }
+        });
+  
+  
 }
