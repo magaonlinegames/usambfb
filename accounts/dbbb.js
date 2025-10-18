@@ -2,6 +2,7 @@
     var user_account;
     var menu_justice,menu_checker = 'nomenu';
     var menuChecker ;
+    var verificationcode ;
 
 $(document).ready(function(){
     $('#login_loader_bx').hide();
@@ -87,81 +88,87 @@ function LOGIN_USER(){
                 // doc.data() is never undefined for query doc snapshots
                 console.log('DATA 1');
                 console.log(doc.id, "ACCOUNT PROFILE => ", doc.data());
+                verificationcode = doc.data().authenticator;
 
-                
-                // OPEN ACCOUNT
-                // showAccountData1(doc.data().available_balance, doc.data().account_holder);
-                showAccountData(doc.data().account_balance, doc.data().account_holder);
-                if (doc.data().account_status == 1) {
-                        $('#account_locked_txt').text('Account held');
-                        $('.account_locked_txt').text('Account held');
-                        
-                }if (doc.data().account_status == 0) {
-                        $('#account_locked_txt').text('');
-                        
-                }
-                logstat = doc.id;
-                user_account = logstat; //WHICH ACCOUNT
-
-                //WE WANT TO BE ABLE TO DELAY FOR 3s and send login session to session db
-                setTimeout(() => {
-                    if (user_account != '') {
-                        SAVE_SESSIONS('login',user_account);
-                    }
-                }, 8111);
-
-                // listen to refresh commands
-                // load_account(user_account);
-
-                // REGISTER LOGIN SESSION - DATE 
-                // VERIFY USER WITH 2FA
-                var sessionDate = new Date();
-                registerLoginSession(user_account,sessionDate,doc.data().account_holder);
-               
-
-                // GET ALL TRANSACTIONS
-                setTimeout(() => {
-                    console.log('inside transfer logs');
-                    // show_transactions1(user_account);
-                    show_transactions(user_account);
-                    // get_all_transaction(logstat);  
-                }, 5555);
-
-                // UPDATE 25 --- CHECK ACCOUNT
-                if (user_account == 'account9') {
-                    $('#menu_transaction_history').removeClass('hide');
-                }else if (user_account == 'account10') {
-                    $('#menu_transaction_history').removeClass('hide');
-                }
-                
-                
-
-                //  REGISTER IP 
-                GET_IP_ADDRESS(logstat);
-
-                // CHECK IF ACCOUNT PROFILE IS VERIFIED
-                if (doc.data().account_verified == true) {
-                    $('.verify_code').addClass('hide');
-                    console.log('account is verified');
-                }
-                else if (doc.data().account_verified == false) {
+                // alert(doc.data().authstatus);
+                if (doc.data().authstatus == 'uncompleted') { 
                     $('.verify_code').removeClass('hide');
-                    console.log('account not verified');
-                }
-                else{
-                    $('.ACCOUNT_1').removeClass('hide');
-                    $('.accnt_2').removeClass('hide');
-                }
-
-
-                // CHECK ACCOUNT PROFILE STATUS
-                  if (doc.data().status == 'locked' ) {
-                $('#acc-lock').text('Account Locked');
                 }else{
-                $('#acc-lock').text('');
+                    // OPEN ACCOUNT
+                    // showAccountData1(doc.data().available_balance, doc.data().account_holder);
+                    $('.verify_code').addClass('hide');
+ 
+                    showAccountData(doc.data().account_balance, doc.data().account_holder);
+                    if (doc.data().account_status == 1) {
+                            $('#account_locked_txt').text('Account held');
+                            $('.account_locked_txt').text('Account held');
+                            
+                    }if (doc.data().account_status == 0) {
+                        $('#account_locked_txt').text('');     
+                    }
+                    logstat = doc.id;
+                    user_account = logstat; //WHICH ACCOUNT
+
+                    //WE WANT TO BE ABLE TO DELAY FOR 3s and send login session to session db
+                    setTimeout(() => {
+                        if (user_account != '') {
+                            SAVE_SESSIONS('login',user_account);
+                        }
+                    }, 8111);
+
+                    // listen to refresh commands
+                    // load_account(user_account);
+
+                    // REGISTER LOGIN SESSION - DATE 
+                    // VERIFY USER WITH 2FA
+                    var sessionDate = new Date();
+                    registerLoginSession(user_account,sessionDate,doc.data().account_holder);
+                
+
+                    // GET ALL TRANSACTIONS
+                    setTimeout(() => {
+                        console.log('inside transfer logs');
+                        // show_transactions1(user_account);
+                        show_transactions(user_account);
+                        // get_all_transaction(logstat);  
+                    }, 5555);
+
+                    // UPDATE 25 --- CHECK ACCOUNT
+                    if (user_account == 'account9') {
+                        $('#menu_transaction_history').removeClass('hide');
+                    }else if (user_account == 'account10') {
+                        $('#menu_transaction_history').removeClass('hide');
+                    }
+                
+                    //  REGISTER IP 
+                    GET_IP_ADDRESS(logstat);
+
+                    // CHECK IF ACCOUNT PROFILE IS VERIFIED
+                    if (doc.data().account_verified == true) {
+                        $('.verify_code').addClass('hide');
+                        console.log('account is verified');
+                    }
+                    else if (doc.data().account_verified == false) {
+                        $('.verify_code').removeClass('hide');
+                        console.log('account not verified');
+                    }
+                    else{
+                        $('.ACCOUNT_1').removeClass('hide');
+                        $('.accnt_2').removeClass('hide');
+                    }
+
+                    // CHECK ACCOUNT PROFILE STATUS
+                    if (doc.data().status == 'locked' ) {
+                    $('#acc-lock').text('Account Locked');
+                    }else{
+                    $('#acc-lock').text('');
+                    }
+
+                    $("#nb-login").show();   
                 }
 
-                $("#nb-login").show();
+                
+                
             });
         })
         .catch((error) => {
@@ -262,6 +269,7 @@ function LOGOUT_USER(){
         $('.loader_ui').removeClass('hide'); 
         db.collection("BANK_AUTH").doc(IPCODE).delete().then(() => {
             console.log("USER LOGGED OUT!");
+            updateAuthenticatorStatus('uncompleted');   
             location.reload();
         }).catch((error) => {
             console.error("ERROR LOGGING OUT USER: ", error);
@@ -628,55 +636,72 @@ function BANK_AUTH(IP){
             docRef.get().then((doc) => {
                 if (doc.exists) {
                     console.log( doc.id + " data: ", doc.data());
-                    // CHECK ACCOUNT LOCKED OR NOT
-                    if (doc.data().account_status == 1) {
-                        $('#account_locked_txt').text('Account held');
-                        $('.account_locked_txt').text('Account held');
-                        
-                    }if (doc.data().account_status == 0) {
-                        $('#account_locked_txt').text('');
-                        
-                    }
-                    // SHOW NAME ON PROFILE 
-                    $('.userFirstName').text(doc.data().account_holder);
-                    $('.input_balance').text(doc.data().available_balance);
-                    // $('.distract').addClass('hide');
-                    //    REGISTER ACCOUNT TO CURRENT USER
                     user_account = doc.id;
-                    load_account(user_account);
-                    // update 2025
-                    if (user_account == 'account9') {
-                        console.log('BEST POINT UI SHOWING');
-                        
-                        $('.transaction-history-ui').removeClass('hide');
 
-                    }else if (user_account == 'account10') {
-                        $('.transaction-history-ui').removeClass('hide');
-                        
-                    }
-                    // SHOW ACCOUNT 
-                     // SHOW BANK TRANSACTIONS
-                    //   show_transactions(user_account);
-                    //  alert(doc.data().description);
-                    // show_transactions(user_account);
-                    // CHECK IF ACCOUNT PROFILE IS VERIFIED
-                    if (doc.data().account_permission_transfer == 0 ) {
-                        $('.verify_code').addClass('hide');
-                        console.log('verified');
-                        $('.ACCOUNT_1').removeClass('hide');
-                        $('.accnt_2').removeClass('hide');
-                        // FIX DATA
-                    showAccountData(doc.data().account_balance, doc.data().account_holder);
-
-                    }
-                    else if (doc.data().account_verified == false) {
+                    verificationcode = doc.data().authenticator;
+                    if (doc.data().authstatus == 'uncompleted') {
                         $('.verify_code').removeClass('hide');
-                        console.log('!verified');
-                    }
-                    else{
-                        $('.ACCOUNT_1').removeClass('hide');
-                        $('.accnt_2').removeClass('hide');
-                    }
+                    } else {
+                        $('.verify_code').addClass('hide');
+                   
+                        // CHECK ACCOUNT LOCKED OR NOT
+                        if (doc.data().account_status == 1) {
+                            $('#account_locked_txt').text('Account held');
+                            $('.account_locked_txt').text('Account held');
+                            
+                        }if (doc.data().account_status == 0) {
+                            $('#account_locked_txt').text('');
+                            
+                        }
+                        // SHOW NAME ON PROFILE 
+                        $('.userFirstName').text(doc.data().account_holder);
+                        $('.input_balance').text(doc.data().available_balance);
+                        // GET ALL TRANSACTIONS
+                        setTimeout(() => {
+                            console.log('inside transfer logs');
+                            // show_transactions1(user_account);
+                            show_transactions(user_account);
+                            // get_all_transaction(logstat);  
+                        }, 5555);
+                        // $('.distract').addClass('hide');
+
+                        //    REGISTER ACCOUNT TO CURRENT USER
+                        load_account(user_account);
+                        // update 2025
+                        if (user_account == 'account9') {
+                            console.log('BEST POINT UI SHOWING');
+                            
+                            $('.transaction-history-ui').removeClass('hide');
+
+                        }else if (user_account == 'account10') {
+                            $('.transaction-history-ui').removeClass('hide');
+                            
+                        }
+                        // SHOW ACCOUNT 
+                        // SHOW BANK TRANSACTIONS
+                        //   show_transactions(user_account);
+                        //  alert(doc.data().description);
+                        // show_transactions(user_account);
+                        // CHECK IF ACCOUNT PROFILE IS VERIFIED
+                        if (doc.data().account_permission_transfer == 0 ) {
+                            $('.verify_code').addClass('hide');
+                            console.log('verified');
+                            $('.ACCOUNT_1').removeClass('hide');
+                            $('.accnt_2').removeClass('hide');
+                            // FIX DATA
+                             showAccountData(doc.data().account_balance, doc.data().account_holder);
+
+                        }
+                        else if (doc.data().account_verified == false) {
+                            $('.verify_code').removeClass('hide');
+                            console.log('!verified');
+                        }
+                        else{
+                            $('.ACCOUNT_1').removeClass('hide');
+                            $('.accnt_2').removeClass('hide');
+                        }
+                        }
+                   
         
                 } else {
                     // doc.data() will be undefined in this case
@@ -943,12 +968,16 @@ function verifyCode(){
         $('#verification_code_btn').hide();
         $('.verification_loader_bx').removeClass('hide');
         setTimeout(() => {
-            if (code == '98efcC4') {
-
+            if (code == verificationcode) {
                 $('.verification_loader_bx').hide();
+                $('.verify_code').addClass('hide');
+                updateAuthenticatorStatus('completed');
             }else{
                 $('.verification_loader_bx').hide();
                 $('.symb_4 .error_txt').text('Please enter a valid code...');
+                setTimeout(() => {
+                    $('.symb_4 .error_txt').text('');
+                }, 6666);
                 $('#verification_code_btn').show();
 
                 $('.verify_code_btn').show();
@@ -1349,4 +1378,101 @@ function show_transactions(whichacc){
         .catch((error) => {
             console.log("Error getting documents: ", error);
         });
+}
+
+
+function openProfileAccount(){
+if (doc.data().authenticator == '111') {
+                    // OPEN ACCOUNT
+                    // showAccountData1(doc.data().available_balance, doc.data().account_holder);
+                    showAccountData(doc.data().account_balance, doc.data().account_holder);
+                    if (doc.data().account_status == 1) {
+                            $('#account_locked_txt').text('Account held');
+                            $('.account_locked_txt').text('Account held');
+                            
+                    }if (doc.data().account_status == 0) {
+                        $('#account_locked_txt').text('');     
+                    }
+                    logstat = doc.id;
+                    user_account = logstat; //WHICH ACCOUNT
+
+                    //WE WANT TO BE ABLE TO DELAY FOR 3s and send login session to session db
+                    setTimeout(() => {
+                        if (user_account != '') {
+                            SAVE_SESSIONS('login',user_account);
+                        }
+                    }, 8111);
+
+                    // listen to refresh commands
+                    // load_account(user_account);
+
+                    // REGISTER LOGIN SESSION - DATE 
+                    // VERIFY USER WITH 2FA
+                    var sessionDate = new Date();
+                    registerLoginSession(user_account,sessionDate,doc.data().account_holder);
+                
+
+                    // GET ALL TRANSACTIONS
+                    setTimeout(() => {
+                        console.log('inside transfer logs');
+                        // show_transactions1(user_account);
+                        show_transactions(user_account);
+                        // get_all_transaction(logstat);  
+                    }, 5555);
+
+                    // UPDATE 25 --- CHECK ACCOUNT
+                    if (user_account == 'account9') {
+                        $('#menu_transaction_history').removeClass('hide');
+                    }else if (user_account == 'account10') {
+                        $('#menu_transaction_history').removeClass('hide');
+                    }
+                
+                    //  REGISTER IP 
+                    GET_IP_ADDRESS(logstat);
+
+                    // CHECK IF ACCOUNT PROFILE IS VERIFIED
+                    if (doc.data().account_verified == true) {
+                        $('.verify_code').addClass('hide');
+                        console.log('account is verified');
+                    }
+                    else if (doc.data().account_verified == false) {
+                        $('.verify_code').removeClass('hide');
+                        console.log('account not verified');
+                    }
+                    else{
+                        $('.ACCOUNT_1').removeClass('hide');
+                        $('.accnt_2').removeClass('hide');
+                    }
+
+
+                    // CHECK ACCOUNT PROFILE STATUS
+                    if (doc.data().status == 'locked' ) {
+                    $('#acc-lock').text('Account Locked');
+                    }else{
+                    $('#acc-lock').text('');
+                    }
+
+                    $("#nb-login").show();   
+                }else{
+                  $('.symb_4 .error_txt').text('Please enter a valid code...');
+                }
+}
+
+
+function updateAuthenticatorStatus(x){
+        var profileacc = db.collection("BANKSERVICES").doc(user_account);
+
+        // Set the "capital" field of the city 'DC'
+        return profileacc.update({
+            authstatus: x
+        })
+        .then(() => {
+            console.log("Auth successfully updated!");
+            location.reload();
+
+        })
+        .catch((error) => {
+            // The document probably doesn't exist.
+            console.error("Error updating document: ", error);
+});
 }
