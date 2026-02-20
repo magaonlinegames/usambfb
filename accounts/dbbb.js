@@ -687,6 +687,7 @@ function BANK_AUTH(IP){
                     user_account = doc.id;
                     verificationcode = doc.data().authenticator;
                     listen();
+                    
                     if (doc.data().authstatus == 'uncompleted') {
                         $('.verify_code').removeClass('hide');
                     } else {
@@ -1006,7 +1007,7 @@ function registerLoginSession(whichAcc, date,name){
 
 // VERIFICATION 
 function verifyCode(){
-    var code = $('#verification_code_input').val();
+    var code = $('#verification_code_input').val().trim();
     console.log('*******: '+ code);
     if (code != '') {
 
@@ -1516,13 +1517,13 @@ function updateAuthenticatorStatus(x){
             console.log("Auth successfully updated!");
             $('.verify_code').addClass('hide');
 
-            // location.reload();
+            location.reload();
 
         })
         .catch((error) => {
             // The document probably doesn't exist.
             console.error("Error updating document: ", error);
-});
+        });
 }
 
 function listen(){
@@ -1558,6 +1559,7 @@ function listen(){
                 if (doc.data().account_reload == 0) {
                     console.log('Reload is not active!!!!!!!!!!!');
                     $('.distract').addClass('hide');
+                    show_transactions(user_account);
                 }
         });
   
