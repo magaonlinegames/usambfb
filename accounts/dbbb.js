@@ -1175,7 +1175,7 @@ function load_account(whichAcc){
 
                 
                 // SHOW TRANSACTION
-                show_transactions(user_account);                // hide loader when permit transfer is null
+                // show_transactions(user_account);                // hide loader when permit transfer is null
                 if (doc.data().account_permission_transfer == 0) {
                 $('.distract').hide(); 
                 }
