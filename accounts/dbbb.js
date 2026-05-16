@@ -1276,7 +1276,7 @@ function getTransactionsOPP(which_acc){
   }
 
 function show_transactions(whichacc){
-    $('#recent_transaction_bx li').remove();
+    $('#recent_transaction_bx .transaction-row').remove();
     db = firebase.firestore();
     db.collection("TRANSACTIONS_HISTORY").orderBy("order_number", "desc")
         .get()
